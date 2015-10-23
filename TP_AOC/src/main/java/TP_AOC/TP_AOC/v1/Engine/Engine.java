@@ -1,12 +1,15 @@
 package TP_AOC.TP_AOC.v1.Engine;
 
+
 public class Engine implements IEngine{
+
 	/**
 	 * permet de determiner si le moteur est en marche ou non
 	 */
-	boolean etatMarche;
+	private boolean etatMarche;
 	
 	public Engine(){
+		System.out.println("Engine ...  Constructeur");
 		etatMarche = false;
 	}
 
@@ -33,9 +36,6 @@ public class Engine implements IEngine{
 		// TODO Auto-generated method stub
 		
 	}
-	
-	
-	
 
 	@Override
 	/**

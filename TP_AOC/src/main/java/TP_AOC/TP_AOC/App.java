@@ -1,12 +1,7 @@
 package TP_AOC.TP_AOC;
-import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.Group;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.paint.Color;
-import javafx.stage.Stage;
+import TP_AOC.TP_AOC.v1.Controller.Controller;
+import TP_AOC.TP_AOC.v1.Controller.IController;
+
 
 /**
  * Hello world!
@@ -16,9 +11,15 @@ public class App
 {
     public static void main( String[] args )
     {
+    	IController Controller = new Controller();
+    	
+    	/**
         System.out.println( "Hello World!" );
         Application.launch(Test.class, args);
+        
+        **/
     }
+    /**
     @Override
     public void start(Stage primaryStage) {
         primaryStage.setTitle("Hello World");
@@ -37,5 +38,5 @@ public class App
         root.getChildren().add(btn);        
         primaryStage.setScene(scene);
         primaryStage.setVisible(true);
-    }
+    }**/
 }
