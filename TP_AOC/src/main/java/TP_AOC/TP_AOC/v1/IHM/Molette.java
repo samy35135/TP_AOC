@@ -1,16 +1,17 @@
-package TP_AOC.TP_AOC.v1.IHM;
+package TP_AOC.TP_AOC.v1.Engine;
 
 import java.util.*;
 
 /**
- * Retourne la position de la molette entre 0.0 et 1.0
- * en virgule flottante
+ * 
  */
-public interface Molette {
+public class Molette {
 
     /**
-     * 
+     * Default constructor
      */
-    public void position:float();
+    public Molette() {
+    }
+
 
 }

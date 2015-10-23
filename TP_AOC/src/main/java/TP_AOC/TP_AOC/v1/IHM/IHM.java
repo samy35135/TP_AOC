@@ -24,10 +24,7 @@ public class IHM {
      */
     public LED led2;
 
-    /**
-     * 
-     */
-    public Bouton 4 boutons;
+
 
 
 
