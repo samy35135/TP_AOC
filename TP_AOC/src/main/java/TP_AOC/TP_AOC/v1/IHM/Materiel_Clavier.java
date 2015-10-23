@@ -19,8 +19,9 @@ public class Materiel_Clavier implements Clavier {
      * Le 1 est start, le 2 est stop, le  3 est Inc et le 4 est dec.
      * @param i
      */
-    public void touchePressee:boolean(int i) {
+    public boolean touchePressee(int i) {
         // TODO implement here
+    	return false;
     }
 
 }

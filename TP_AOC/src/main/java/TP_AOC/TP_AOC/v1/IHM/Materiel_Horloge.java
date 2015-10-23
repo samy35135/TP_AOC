@@ -2,6 +2,10 @@ package TP_AOC.TP_AOC.v1.IHM;
 
 import java.util.*;
 
+import TP_AOC.TP_AOC.v1.Engine.Command;
+
+
+
 /**
  * 
  */
@@ -14,17 +18,23 @@ public class Materiel_Horloge implements Horloge {
     }
 
 
-    /**
+
+	
+	   /**
      * Appel périodique de l'opération execute() de cmd,
      * toutes les périodesEnSecondes secondes,
      * avec une précision d'une miliseconde
      * @param cmd 
      * @param periodeEnSecondes
      */
-    public void activerPeriodiquement(Command cmd, float periodeEnSecondes) {
-        // TODO implement here
-    }
+    @Override
+	public void activerPeriodiquement(Command cmd, float periodeEnSecondes) {
+		// TODO Auto-generated method stub
+		
+	}
 
+
+	@Override
     /**
      * Appel de l'opération execute() de cmd, 
      * après un délai de délaiEnSecondes secondes,
@@ -32,15 +42,16 @@ public class Materiel_Horloge implements Horloge {
      * @param cmd 
      * @param delaiEnSecondes
      */
-    public void activerApresDelai(Command cmd, float delaiEnSecondes) {
-        // TODO implement here
-    }
+	public void activerApresDelai(Command cmd, float delaiEnSecondes) {
+		// TODO Auto-generated method stub
+		
+	}
 
-    /**
-     * @param cmd
-     */
-    public void desactiver(Command cmd) {
-        // TODO implement here
-    }
+
+	@Override
+	public void desactiver(Command cmd) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }
