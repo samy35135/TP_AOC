@@ -7,7 +7,7 @@ import TP_AOC.TP_AOC.v1.Controller.IController;
 /**
  * 
  */
-public class MarquerMesure {
+public class MarquerMesure implements Command{
     /**
      * 
      */
@@ -16,8 +16,15 @@ public class MarquerMesure {
     /**
      * Default constructor
      */
-    public MarquerMesure() {
+    public MarquerMesure(IController controller) {
+    	System.out.println("MarquerMesure ...  Constructeur");
+    	this.controller = controller;
     }
+
+	@Override
+	public void execute() {
+		// TODO Auto-generated method stub
+	}
 
 
 }

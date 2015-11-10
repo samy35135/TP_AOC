@@ -16,7 +16,9 @@ public class MarquerTemps implements Command {
     /**
      * Default constructor
      */
-    public MarquerTemps() {
+    public MarquerTemps(IController controller) {
+    	System.out.println("MarquerTemps ...  Constructeur");
+    	this.controller = controller;
     }
 
 

@@ -7,6 +7,7 @@ import java.util.*;
  */
 public interface IController {
 
-
-
+	public void marquerMesure();
+	public void marquerTemps();
+	public void demarrer();
 }
