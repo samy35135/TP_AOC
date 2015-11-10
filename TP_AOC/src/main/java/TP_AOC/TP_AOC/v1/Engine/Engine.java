@@ -7,8 +7,10 @@ import javax.swing.Timer;
 
 public class Engine implements IEngine{
 
-	private int tempo = 1;
-	private int mesure = 5;
+	private int tempo = 60;
+	private int mesure = 1;
+	public static final int TEMPO_MAX = 7;
+	public static final int TEMPO_MIN = 1;
 	Map<SignalMoteur, Command> map_commandes;
 
 	/**
@@ -29,7 +31,8 @@ public class Engine implements IEngine{
 
 	@Override
 	public void setTempo(int t) {
-		this.tempo = t;
+		if( TEMPO_MIN <= t  && t <= TEMPO_MAX )
+			this.tempo = t;
 	}
 
 	@Override
@@ -53,15 +56,14 @@ public class Engine implements IEngine{
 		}
 	}
 
-
 	@Override
 	/**
 	 * affecte la variable etatMarche si mode est différent
 	 */
 	public void setEtatMarche(boolean mode) {
-		/*if (etatMarche != mode)
-			etatMarche = mode;*/
-		if(etatMarche != mode) return;
+		if(etatMarche == mode) return;
+		
+		// Il y a un chagement d'état à faire
 		if(mode){
 			
 		}else{
