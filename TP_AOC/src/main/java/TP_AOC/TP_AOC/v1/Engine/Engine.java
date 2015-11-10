@@ -7,7 +7,8 @@ import java.util.Map;
 public class Engine implements IEngine{
 
 	private int tempo = 60;
-	private int mesure = 1;
+	private int mesure = 2;
+	private int temps_fait = 0;
 	
 	private Horloge_Tempo horloge_marquer_tempo;
 	
@@ -24,7 +25,6 @@ public class Engine implements IEngine{
 		System.out.println("Engine ...  Constructeur");
 		etatMarche = false;
 		map_commandes = new Hashtable<SignalMoteur, Command>();
-		horloge_marquer_tempo = new Horloge_Tempo(map_commandes.get(SignalMoteur.MarquerTemps), tempo/60);
 	}
 
 	@Override
@@ -45,10 +45,19 @@ public class Engine implements IEngine{
 
 	@Override
 	public void setNbTempsMesures(int t) {
+		temps_fait = 0;
 		this.mesure = t;
 
 	}
 
+	public void marquerTempo(){
+		temps_fait ++;
+		map_commandes.get(SignalMoteur.MarquerTemps).execute();
+		if(temps_fait == mesure ){
+			map_commandes.get(SignalMoteur.MarquerMesure).execute();
+			temps_fait = 0;
+		}
+	}
 	@Override
 	public void addCommand(SignalMoteur signalMoteur, Command cmd) {
 		if(!map_commandes.containsKey(signalMoteur)){
@@ -68,9 +77,11 @@ public class Engine implements IEngine{
 		
 		// Il y a un chagement d'état à faire
 		if(mode){
+			horloge_marquer_tempo = (horloge_marquer_tempo == null) ? new Horloge_Tempo(this, 60/tempo) : horloge_marquer_tempo;
 			horloge_marquer_tempo.demarrer();
 		}else{
 			horloge_marquer_tempo.stop();
+			temps_fait = 0;
 		}
 	}
 

@@ -11,5 +11,7 @@ public interface IController {
 	public void marquerMesure();
 	public void marquerTemps();
 	public void updateEnMarche(IEngine engine);
+	public void updateMesure(IEngine engine);
+	public void updateTemps(IEngine engine);
 	public void demarrer();
 }

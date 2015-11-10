@@ -9,12 +9,12 @@ import java.util.TimerTask;
  */
 public class Horloge_Tempo {
 	private Timer t;
-	private Command cmd;
+	private Engine engine;
 	private int frequence;
 	
-	public Horloge_Tempo( Command cmd,int frequence) {
+	public Horloge_Tempo( Engine engine,int frequence) {
 		t = new Timer();
-		this.cmd = cmd;
+		this.engine = engine;
 		this.frequence = frequence;
 	}
 	
@@ -33,7 +33,7 @@ public class Horloge_Tempo {
 	
 	class Repeter extends TimerTask {
 		public void run() {
-			cmd.execute();
+			engine.marquerTempo();
 		}
 	}
 }
