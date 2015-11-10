@@ -11,20 +11,21 @@ public class MarquerTemps implements Command {
     /**
      * 
      */
-    public IController controller;
+    private IController controller;
 
     /**
      * Default constructor
      */
-    public MarquerTemps() {
+    public MarquerTemps(IController controller) {
+    	System.out.println("MarquerTemps ...  Constructeur");
+    	this.controller = controller;
     }
-
 
     /**
      * 
      */
     public void execute() {
-        // TODO implement here
+    	controller.marquerTemps();
     }
 
 }

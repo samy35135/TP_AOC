@@ -10,7 +10,7 @@ public interface IEngine {
     /**
      * @return
      */
-    public int gererTempo();
+    public int getTempo();
 
     /**
      * @param t
