@@ -3,12 +3,14 @@ package TP_AOC.TP_AOC.v1.Engine;
 import java.util.Hashtable;
 import java.util.Map;
 
-import javax.swing.Timer;
 
 public class Engine implements IEngine{
 
 	private int tempo = 60;
 	private int mesure = 1;
+	
+	private Horloge_Tempo horloge_marquer_tempo;
+	
 	public static final int TEMPO_MAX = 7;
 	public static final int TEMPO_MIN = 1;
 	Map<SignalMoteur, Command> map_commandes;
@@ -21,7 +23,8 @@ public class Engine implements IEngine{
 	public Engine(){
 		System.out.println("Engine ...  Constructeur");
 		etatMarche = false;
-		map_commandes = new Hashtable();
+		map_commandes = new Hashtable<SignalMoteur, Command>();
+		horloge_marquer_tempo = new Horloge_Tempo(map_commandes.get(SignalMoteur.MarquerTemps), tempo/60);
 	}
 
 	@Override
@@ -65,9 +68,9 @@ public class Engine implements IEngine{
 		
 		// Il y a un chagement d'état à faire
 		if(mode){
-			
+			horloge_marquer_tempo.demarrer();
 		}else{
-			
+			horloge_marquer_tempo.stop();
 		}
 	}
 

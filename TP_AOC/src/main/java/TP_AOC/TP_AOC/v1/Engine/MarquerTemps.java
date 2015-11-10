@@ -25,7 +25,7 @@ public class MarquerTemps implements Command {
      * 
      */
     public void execute() {
-        // TODO implement here
+    	controller.marquerTemps();
     }
 
 }

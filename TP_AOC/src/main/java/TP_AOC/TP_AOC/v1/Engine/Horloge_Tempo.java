@@ -6,7 +6,6 @@ import java.util.TimerTask;
 /**
  * Toute les fréquences la classe fait cmd.executer();
  * @author samyabh
- *
  */
 public class Horloge_Tempo {
 	private Timer t;
@@ -18,6 +17,7 @@ public class Horloge_Tempo {
 		this.cmd = cmd;
 		this.frequence = frequence;
 	}
+	
 	public void changerFrequence(int frequence){
 		stop();
 		this.frequence = frequence;
