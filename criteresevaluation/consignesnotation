@@ -1,0 +1,28 @@
+critères d'évaluation
+
+Pour chaque version :
+- essai de fonctionnement du jar fourni
+	clic/flash
+	réglage tempo / maj afficheur
+	réglage nb temps / mesure, flash led 2
+	synchronisation led1/led2/clic
+	absence d'effet "zip" attendre que la valeur soit stable avant de faire l'update
+	placement correct éléments GUI
+	
+- rapport archi:
+	respect patron de conception
+	exposé les choix techniques
+	lisibilité diagrammes
+	pdf
+
+- test
+	rapport passage des tests
+	source des tests
+	
+- doc
+	javadoc produite et claire
+	commentaires sources
+	
+- source disponible
+- participation des membres du binome
+	
