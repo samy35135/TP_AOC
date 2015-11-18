@@ -1,4 +1,7 @@
-package TP_AOC.TP_AOC.v1.Engine;
+package TP_AOC.v1.Engine;
+
+import TP_AOC.v1.Engine.Commande.Command;
+import TP_AOC.v1.Engine.Horloge.Horloge_Tempo;
 
 import java.util.Hashtable;
 import java.util.Map;
@@ -9,11 +12,13 @@ public class Engine implements IEngine{
 	private int tempo = 60;
 	private int mesure = 2;
 	private int temps_fait = 0;
-	
+
+	// constante 30 et 300
+
 	private Horloge_Tempo horloge_marquer_tempo;
 	
 	public static final int TEMPO_MAX = 7;
-	public static final int TEMPO_MIN = 1;
+	public static final int TEMPO_MIN = 2;
 	Map<SignalMoteur, Command> map_commandes;
 
 	/**
