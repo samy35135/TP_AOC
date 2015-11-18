@@ -51,17 +51,16 @@ public class IHM implements Initializable, BStartandStop {
 		// TODO Auto-generated method stub
 		slider.setMin(30);
 		slider.setMax(300);
-		slider.setValue(40);
-		slider.setBlockIncrement(10);
-		double slidervalue = slider.getValue();
-		String valueslider=String.valueOf(slidervalue);
+		slider.setValue(30);
+		double slidervalue = slider.getValue();//valeur courante du slider 
+		String valueslider=String.valueOf(slidervalue);// conversion de la valeur courante en string
 		affichagetempo.setText(valueslider);
 		//Number oldValue = Double.parseDouble(text);
 		initialisationStart();
 		slider.valueProperty().addListener(new ChangeListener<Number>() {
 		      @Override public void changed(ObservableValue<? extends Number> observableValue, Number oldValue, Number newValue) {
 		        if (newValue == null) {
-		          affichagetempo.setText("150");
+		          affichagetempo.setText(valueslider);
 		          return;
 		        }
 		        affichagetempo.setText(Math.round(newValue.intValue()) + "");
@@ -105,7 +104,12 @@ public class IHM implements Initializable, BStartandStop {
 		this.etat=etat;
 	}
 	@FXML
-	public void augmenterTemps(ActionEvent event){}
+	public void augmenterTemps(ActionEvent event){
+		Integer numtpspm = 2;
+		numtpspm ++;	
+		affichagetpparmesure.setText(String.valueOf(numtpspm));
+			
+	}
 	@FXML
 	public void reduireTemps(ActionEvent event){}
 
