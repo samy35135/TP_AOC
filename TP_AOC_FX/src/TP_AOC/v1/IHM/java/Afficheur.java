@@ -7,6 +7,8 @@ public interface Afficheur {
 
 
     /**
+     * 1 : pour led tempo
+     * 2 : pour led mesure
      * @param numLED
      */
     public void allumerLED(int numLED);
