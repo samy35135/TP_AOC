@@ -1,4 +1,4 @@
-package TP_AOC.v1.IHM.java.composantGraphique;
+package TP_AOC.v1.IHM.java;
 
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

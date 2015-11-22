@@ -1,4 +1,4 @@
-package TP_AOC.v1.IHM.java;
+package TP_AOC.v1.Materiel;
 
 
 /**
@@ -11,7 +11,5 @@ public class LED {
      */
     public LED() {
     }
-
-
 
 }

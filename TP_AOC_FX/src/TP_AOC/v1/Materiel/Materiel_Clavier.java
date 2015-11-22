@@ -1,5 +1,7 @@
-package TP_AOC.v1.IHM.java;
+package TP_AOC.v1.Materiel;
 
+
+import TP_AOC.v1.Materiel.Clavier;
 
 /**
  * 

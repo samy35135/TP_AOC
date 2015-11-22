@@ -4,7 +4,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import TP_AOC.v1.Controller.IController;
-import TP_AOC.v1.IHM.java.composantGraphique.BStartandStop;
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -60,54 +59,7 @@ public class IHM  extends Application implements Initializable, BStartandStop, I
 	}
 
 
-	/***************************************    AFFICHEUR   ***************************************/
 
-	/**
-	 * 1 : pour led tempo
-	 * 2 : pour led mesure
-	 * @param numLED
-	 */
-	@Override
-	public void allumerLED(int numLED) {
-		switch (numLED){
-			case 1 :
-				/**
-				 * Allumer LED1
-				 */
-				break;
-			case 2 :
-				/**
-				 * Allumer LED2
-				 */
-				break;
-			default : break;
-		}
-
-	}
-
-	@Override
-	public void eteindreLED(int numLED) {
-		switch (numLED){
-			case 1 :
-				/**
-				 * Eteindre LED1
-				 */
-				break;
-			case 2 :
-				/**
-				 * Eteindre LED2
-				 */
-				break;
-			default : break;
-		}
-	}
-
-	@Override
-	public void afficherTempo(int valeurTempo) {
-		/**
-		 * Afficher valeurTempo à l'écran
-		 */
-	}
 
 
 
