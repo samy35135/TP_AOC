@@ -58,22 +58,16 @@ public class IHM  extends Application implements Initializable, BStartandStop, I
 	}
 
 
-
-
-
-
 	/***************************************    Fenêtre graphique   ***************************************/
 
 	@Override
 	public void demarrer(){
-		System.out.println("IHM .... demarrer - controller : " + controller);
 		launch();
 	}
 
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			System.out.println("IHM .... start - controller :" + controller);
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("../assets/TP_AOC.fxml"));
 			Parent root = loader.load();
 			Scene scene = new Scene(root,600,320);
@@ -108,7 +102,6 @@ public class IHM  extends Application implements Initializable, BStartandStop, I
 		        affichagetempo.setText(Math.round(newValue.intValue()) + "");
 		      }
 		    });
-		System.out.println(" IHM ... initialize " +controller);
 	}
 
 	/***************************************     BStartandStop   ***************************************/
@@ -164,7 +157,6 @@ public class IHM  extends Application implements Initializable, BStartandStop, I
 	}
 	@Override
 	public void setEtat(boolean etat){
-		System.out.println("IHM ... setEtat " + this.getEtat());
 		this.etat=etat;
 		if(this.etat)
 			controller.demarrer();

@@ -27,6 +27,7 @@ public class Horloge_Tempo implements Horloge{
 	}
 	@Override
 	public void demarrer(){
+		t = new Timer();
 		t.schedule(new Repeter(), 0, frequence*1000);
 	}
 	@Override

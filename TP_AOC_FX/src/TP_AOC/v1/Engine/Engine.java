@@ -87,9 +87,11 @@ public class Engine implements IEngine{
 		
 		// Il y a un chagement d'état à faire
 		if(mode){
+			etatMarche = true;
 			horloge_marquer_tempo = (horloge_marquer_tempo == null) ? new Horloge_Tempo(this, 60/tempo) : horloge_marquer_tempo;
 			horloge_marquer_tempo.demarrer();
 		}else{
+			etatMarche = false;
 			horloge_marquer_tempo.stop();
 			temps_fait = 0;
 		}
