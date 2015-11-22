@@ -28,7 +28,7 @@ public class IHM  extends Application implements Initializable, BStartandStop, I
 	 *  - Passer l'état initial du bouton start à FAUX au démarrage
 	 *  - Bien passer par setEtat quand tu changes l'état, ça appel le controller
 	 */
-	private IController controller;
+	private static IController controller;
 
 	@FXML
 	private AnchorPane layout; //fx:id="layout"
@@ -49,7 +49,7 @@ public class IHM  extends Application implements Initializable, BStartandStop, I
 	@FXML
 	private Slider slider;//fx:id="slider"
 	
-	private Boolean etat;
+	private static Boolean etat;
 	/**
 	 * Controller
 	 */
@@ -66,13 +66,14 @@ public class IHM  extends Application implements Initializable, BStartandStop, I
 
 	@Override
 	public void demarrer(){
-		System.out.println("IHM .... demarrer :" + controller);
+		System.out.println("IHM .... demarrer - controller : " + controller);
 		launch();
 	}
 
 	@Override
 	public void start(Stage primaryStage) {
 		try {
+			System.out.println("IHM .... start - controller :" + controller);
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("../assets/TP_AOC.fxml"));
 			Parent root = loader.load();
 			Scene scene = new Scene(root,600,320);
@@ -131,7 +132,6 @@ public class IHM  extends Application implements Initializable, BStartandStop, I
 	@Override
 	public void initialisationStart(){
 		startandstop.getStyleClass().add(0,"startbutton");
-		//setEtat(true);
 		startandstop.setText("START");		
 	}
 
@@ -143,6 +143,7 @@ public class IHM  extends Application implements Initializable, BStartandStop, I
 	public void BoutonEtatStart(ObservableList<String> css){
 		css.remove(0);
 		css.add(0, "startbutton");
+		setEtat(true);
 		startandstop.setText("START");
 	}
 
@@ -163,11 +164,11 @@ public class IHM  extends Application implements Initializable, BStartandStop, I
 	}
 	@Override
 	public void setEtat(boolean etat){
+		System.out.println("IHM ... setEtat " + this.getEtat());
 		this.etat=etat;
 		if(this.etat)
 			controller.demarrer();
 		else{
-			System.out.println("IHM ... setEtat " + this.getController());
 			controller.arreter();
 		}
 

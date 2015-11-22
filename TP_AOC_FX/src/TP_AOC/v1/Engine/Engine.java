@@ -14,7 +14,7 @@ public class Engine implements IEngine{
 	private int mesure = 2;
 	private int temps_fait = 0;
 
-	// constante 30 et 300
+	// constante 30 et 300 pour tempo
 	//
 	private Horloge horloge;
 	private Horloge_Tempo horloge_marquer_tempo;
