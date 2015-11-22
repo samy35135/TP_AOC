@@ -9,6 +9,8 @@ import TP_AOC.v1.Engine.SignalMoteur;
 import TP_AOC.v1.Engine.Commande.UpdateMarche;
 import TP_AOC.v1.Engine.Commande.UpdateMesure;
 import TP_AOC.v1.Engine.Commande.UpdateTemps;
+import TP_AOC.v1.IHM.java.IHM;
+import TP_AOC.v1.IHM.java.IIHM;
 
 
 /**
@@ -17,6 +19,7 @@ import TP_AOC.v1.Engine.Commande.UpdateTemps;
 public class Controller implements IController {
 
 	IEngine moteur;
+	IIHM ihm;
 	Command marquerTemps;
 	Command marquerMesure;
 	
@@ -25,16 +28,37 @@ public class Controller implements IController {
      */
     public Controller() {
     	initialisation_moteur();
+		initialisation_IHM();
     }
-  
+
+	/**
+	 * Permet d'initialiser le moteur avec les commandes associées :
+	 * MarquerMesure
+	 * MarquerTemps
+	 * UpdateMarche
+	 * UpdateTemps
+	 * UpdateMesure
+	 */
     private void initialisation_moteur(){
+		System.out.println("Controller...  initialisation_moteur - Début");
     	moteur = new Engine();
     	moteur.addCommand(SignalMoteur.MarquerMesure, new MarquerMesure(this));
     	moteur.addCommand(SignalMoteur.MarquerTemps, new MarquerTemps(this));  	
     	moteur.addCommand(SignalMoteur.UpdateMarche, new UpdateMarche(this));  	
     	moteur.addCommand(SignalMoteur.UpdateTemps, new UpdateTemps(this));  	
-    	moteur.addCommand(SignalMoteur.UpdateMesure, new UpdateMesure(this));  	
+    	moteur.addCommand(SignalMoteur.UpdateMesure, new UpdateMesure(this));
+		System.out.println("Controller...  initialisation_moteur - Fin");
     }
+
+	/**
+	 * Permet d'initiliser la vue
+	 */
+	private void initialisation_IHM(){
+		System.out.println("Controller...  initialisation_IHM - Début");
+		ihm = new IHM();
+		ihm.demarrer();
+		System.out.println("Controller...  initialisation_IHM - Fin");
+	}
     
 	@Override
 	public void demarrer() {
@@ -53,13 +77,6 @@ public class Controller implements IController {
 		System.out.println("Controller ... marquerTemps ");
 	}
 	
-	/**
-	 * MAIN 
-	 */
-	public static void main(String[] args) {
-		Controller c =new Controller();
-		c.demarrer();
-	}
 
 	@Override
 	public void updateEnMarche(IEngine engine){

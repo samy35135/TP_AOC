@@ -3,20 +3,25 @@ package TP_AOC.v1.IHM.java;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
 
-public class IHM implements Initializable, BStartandStop {
-	
+public class IHM  extends Application implements Initializable, BStartandStop, IIHM {
+
 	@FXML
 	private AnchorPane layout; //fx:id="layout"
 	@FXML
@@ -40,7 +45,28 @@ public class IHM implements Initializable, BStartandStop {
 	/**
 	 * Controller
 	 */
-	public IHM(){}
+	public IHM(){
+	}
+
+	@Override
+	public void demarrer(){
+		launch();
+	}
+
+	@Override
+	public void start(Stage primaryStage) {
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("../assets/TP_AOC.fxml"));
+			Parent root = loader.load();
+			Scene scene = new Scene(root,600,320);
+			primaryStage.setScene(scene);
+			primaryStage.show();
+
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 	/**
      * 
      */
