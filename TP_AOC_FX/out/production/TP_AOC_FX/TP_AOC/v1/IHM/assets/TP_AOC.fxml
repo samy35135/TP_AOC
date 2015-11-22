@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="layout" prefHeight="312.0" prefWidth="600.0" styleClass="background" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TP_AOC.v1.IHM.IHM">
+<AnchorPane fx:id="layout" prefHeight="312.0" prefWidth="600.0" styleClass="background" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TP_AOC.v1.IHM.java.IHM">
     <children>
         <Button fx:id="startandstop" layoutX="276.0" layoutY="214.0" mnemonicParsing="false" onAction="#gestioneventstartandstop" prefHeight="73.0" prefWidth="77.0" />
         <Button fx:id="buttonplus" layoutX="510.0" layoutY="95.0" mnemonicParsing="false" onAction="#augmenterTemps" text="+" />

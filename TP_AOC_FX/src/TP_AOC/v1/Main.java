@@ -11,7 +11,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("IHM/TP_AOC.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("IHM/assets/TP_AOC.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root,600,320);
             primaryStage.setScene(scene);

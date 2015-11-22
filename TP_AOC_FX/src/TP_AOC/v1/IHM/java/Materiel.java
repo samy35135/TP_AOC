@@ -1,4 +1,4 @@
-package TP_AOC.v1.IHM;
+package TP_AOC.v1.IHM.java;
 
 
 import TP_AOC.v1.Engine.Horloge.Horloge;
