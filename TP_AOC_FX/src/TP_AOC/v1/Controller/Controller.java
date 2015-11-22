@@ -11,6 +11,7 @@ import TP_AOC.v1.Engine.Commande.UpdateMesure;
 import TP_AOC.v1.Engine.Commande.UpdateTemps;
 import TP_AOC.v1.IHM.java.IHM;
 import TP_AOC.v1.IHM.java.IIHM;
+import TP_AOC.v1.Materiel.Materiel;
 
 
 /**
@@ -21,6 +22,8 @@ public class Controller implements IController {
 	IEngine moteur;
 
 
+
+	Materiel materiel;
 
 	IIHM ihm;
 	Command marquerTemps;
@@ -98,4 +101,11 @@ public class Controller implements IController {
 		this.ihm = ihm;
 	}
 
+	public Materiel getMateriel() {
+		return materiel;
+	}
+
+	public void setMateriel(Materiel materiel) {
+		this.materiel = materiel;
+	}
 }

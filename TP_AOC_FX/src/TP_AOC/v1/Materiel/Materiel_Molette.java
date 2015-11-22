@@ -20,6 +20,6 @@ public class Materiel_Molette implements Molette {
      */
     public float position() {
         return 0;
-        }
+    }
 
 }
