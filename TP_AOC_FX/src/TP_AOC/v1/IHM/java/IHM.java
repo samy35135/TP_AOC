@@ -88,20 +88,20 @@ public class IHM  extends Application implements Initializable, BStartandStop, I
 	public void initialize(URL location, ResourceBundle resources) {
 		slider.setMin(30);
 		slider.setMax(300);
-		slider.setValue(40);
+		slider.setValue(60);
 		slider.setBlockIncrement(10);
 		double slidervalue = slider.getValue();
 		String valueslider=String.valueOf(slidervalue);
-		affichagetempo.setText(valueslider);
+		affichagetempo.setText("OFF");
 		//Number oldValue = Double.parseDouble(text);
 		initialisationStart();
 		slider.valueProperty().addListener(new ChangeListener<Number>() {
 		      @Override public void changed(ObservableValue<? extends Number> observableValue, Number oldValue, Number newValue) {
 		        if (newValue == null) {
-		          affichagetempo.setText("150");
+		          //affichagetempo.setText("150");
 		          return;
 		        }
-		        affichagetempo.setText(Math.round(newValue.intValue()) + "");
+		       // affichagetempo.setText(Math.round(newValue.intValue()) + "");
 		      }
 		    });
 	}
@@ -109,7 +109,8 @@ public class IHM  extends Application implements Initializable, BStartandStop, I
 	/***************************************     Afficheur Tempo   ***************************************/
 
 	public void changerAffichageTempo(String value){
-		affichagetempo.setText(value);
+		//affichagetempo.setText(value);
+
 	}
 
 

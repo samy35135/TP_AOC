@@ -14,14 +14,10 @@ public class Engine implements IEngine{
 	private int mesure = 2;
 	private int temps_fait = 0;
 
-	// constante 30 et 300 pour tempo
-	//
-	private Horloge horloge;
 	private Horloge_Tempo horloge_marquer_tempo;
 	
 	public static final int TEMPO_MAX = 300;
 	public static final int TEMPO_MIN = 30;
-
 
 	public static final int MESURE_MAX = 7;
 	public static final int MESURE_MIN = 2;
@@ -40,6 +36,8 @@ public class Engine implements IEngine{
 
 	@Override
 	public int getTempo() {
+
+		System.out.println("Engine ... getTempo : " + tempo);
 		return tempo;
 	}
 
@@ -94,8 +92,10 @@ public class Engine implements IEngine{
 		// Il y a un chagement d'état à faire
 		if(mode){
 			etatMarche = true;
+			map_commandes.get(SignalMoteur.UpdateTemps).execute();
 			horloge_marquer_tempo = (horloge_marquer_tempo == null) ? new Horloge_Tempo(this, 60/tempo) : horloge_marquer_tempo;
 			horloge_marquer_tempo.demarrer();
+
 		}else{
 			etatMarche = false;
 			horloge_marquer_tempo.stop();

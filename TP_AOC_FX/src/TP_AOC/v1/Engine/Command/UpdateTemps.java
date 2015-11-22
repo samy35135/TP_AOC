@@ -21,7 +21,7 @@ public class UpdateTemps implements Command {
 	@Override
 	public void execute() {
 		System.out.println("UpdateTemps ...  execute");
-		controller.marquerTemps();
+		controller.updateTemps();
 	}
 	
 
