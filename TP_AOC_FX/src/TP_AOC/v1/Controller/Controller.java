@@ -70,8 +70,20 @@ public class Controller implements IController {
 
 
 	@Override
+	public void marquerMesure() {
+		/**
+		 * Si décalage entre les deux LEDS? allumer TEMPO, ALLUMER MESURE, ETEINDRE MESURE,ETEINDRE TEMPO
+		 */
+		materiel.afficheur.allumerLED(2);
+		materiel.getEmetteurSonore().emettreSonMesure();
+		materiel.afficheur.eteindreLED(2);
+	}
+
+	@Override
 	public void marquerTemps() {
-		System.out.println("Controller ... marquerTemps ");
+		materiel.afficheur.allumerLED(1);
+		materiel.getEmetteurSonore().emettreSonTempo();
+		materiel.afficheur.eteindreLED(1);
 	}
 
 
@@ -80,16 +92,15 @@ public class Controller implements IController {
 		if (moteur.getEtatMarche()){
 			// faire action ici
 		}
+		//
+		//
+		// remplir par là
 		// si pas en marche couper côté graphique ?
 	}
 
 	@Override
 	public void updateMesure() {
-		/**
-		 * Si décalage entre les deux LEDS? allumer TEMPO, ALLUMER MESURE, ETEINDRE MESURE,ETEINDRE TEMPO
-		 */
-		materiel.afficheur.allumerLED(1);
-		materiel.afficheur.eteindreLED(1);
+		// rien à mettre ?
 	}
 
 	@Override

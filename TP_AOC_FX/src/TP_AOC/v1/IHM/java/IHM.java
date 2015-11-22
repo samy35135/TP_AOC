@@ -26,11 +26,10 @@ public class IHM  extends Application implements Initializable, BStartandStop, I
 	/**
 	 * Yo ma2thieu, petite liste de chose à faire :
 	 *  - Passer l'état initial du bouton start à FAUX au démarrage
-	 *  - Bien passer par setEtat quand tu changes l'état, ça appel le controller
-	 *  - Lorsqu'on monte la mesure ça appel à "augmenterTemps" là
+	 *  - Bien passer par setEtat quand tu changes l'état, ça appelle le controller
 	 *  - Faudrait supprimer l'afficheur mesure, parce que sinon on devrra produire du code dnas al V2 après
 	 *  - Faire en sorte que Materiel_afficheur, allume les bonnes leds enfonction des paramètes
-	 *
+	 *  - remplir emettreSonTempo emettreSonMesure (tu peux mettre des sons différents)
 	 */
 	private static IController controller;
 

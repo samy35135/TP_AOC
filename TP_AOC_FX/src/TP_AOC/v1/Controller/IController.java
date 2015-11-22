@@ -7,7 +7,10 @@ import TP_AOC.v1.Engine.IEngine;
  */
 public interface IController {
 
-
+	/**
+	 * Permet au controller de marquer une mesure à l'ihm
+	 */
+	public void marquerMesure();
 
 	/**
 	 * Permet au controller de marquer un tempo à l'ihm
