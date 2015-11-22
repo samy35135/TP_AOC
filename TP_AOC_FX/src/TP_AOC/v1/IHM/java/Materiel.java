@@ -2,6 +2,7 @@ package TP_AOC.v1.IHM.java;
 
 
 import TP_AOC.v1.Engine.Horloge.Horloge;
+import TP_AOC.v1.IHM.java.composantFonctionnel.Afficheur;
 
 /**
  * Permet d'accéder aux interfaces de contrôle du matériel
