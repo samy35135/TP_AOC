@@ -5,7 +5,6 @@ import TP_AOC.v1.Engine.IEngine;
 
 public class UpdateTemps implements Command {
 
-	private IEngine moteur;
     /**
      * 
      */
@@ -22,15 +21,8 @@ public class UpdateTemps implements Command {
 	@Override
 	public void execute() {
 		System.out.println("UpdateTemps ...  execute");
-		controller.updateEnMarche(moteur);
+		controller.marquerTemps();
 	}
 	
-	public IEngine getMoteur() {
-		return moteur;
-	}
-	public void setMoteur(IEngine moteur) {
-		this.moteur = moteur;
-	}
-	
-	
+
 }

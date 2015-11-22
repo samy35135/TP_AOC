@@ -1,7 +1,7 @@
 package TP_AOC.v1.Materiel;
 
 
-import TP_AOC.v1.IHM.java.IIHM;
+import TP_AOC.v1.IHM.java.IHM;
 import TP_AOC.v1.Materiel.Interface.*;
 import TP_AOC.v1.Materiel.Materiels.*;
 
@@ -11,7 +11,7 @@ import TP_AOC.v1.Materiel.Materiels.*;
 public class Materiel {
 
 
-    public IIHM ihm;
+    public IHM ihm;
 
     public Afficheur afficheur;
 
@@ -61,11 +61,11 @@ public class Materiel {
         return afficheur;
     }
 
-    public IIHM getIhm() {
+    public IHM getIhm() {
         return ihm;
     }
 
-    public void setIhm(IIHM ihm) {
+    public void setIhm(IHM ihm) {
         this.ihm = ihm;
     }
 

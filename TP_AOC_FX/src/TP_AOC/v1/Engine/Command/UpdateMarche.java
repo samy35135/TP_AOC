@@ -5,7 +5,7 @@ import TP_AOC.v1.Engine.IEngine;
 
 public class UpdateMarche implements Command {
 
-	private IEngine moteur;
+
     /**
      * 
      */
@@ -22,15 +22,9 @@ public class UpdateMarche implements Command {
 	@Override
 	public void execute() {
 		System.out.println("UpdateMarche ...  execute");
-		controller.updateEnMarche(moteur);
+		controller.updateEnMarche();
 	}
 	
-	public IEngine getMoteur() {
-		return moteur;
-	}
-	public void setMoteur(IEngine moteur) {
-		this.moteur = moteur;
-	}
-	
+
 	
 }

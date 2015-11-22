@@ -19,8 +19,12 @@ public class Engine implements IEngine{
 	private Horloge horloge;
 	private Horloge_Tempo horloge_marquer_tempo;
 	
-	public static final int TEMPO_MAX = 7;
-	public static final int TEMPO_MIN = 2;
+	public static final int TEMPO_MAX = 300;
+	public static final int TEMPO_MIN = 30;
+
+
+	public static final int MESURE_MAX = 7;
+	public static final int MESURE_MIN = 2;
 	Map<SignalMoteur, Command> map_commandes;
 
 	/**
@@ -53,11 +57,13 @@ public class Engine implements IEngine{
 	@Override
 	public void setNbTempsMesures(int t) {
 		temps_fait = 0;
-		this.mesure = t;
+		if( MESURE_MIN <= t  && t <= MESURE_MAX )
+			this.mesure = t;
+		System.out.println("Engine ... setNbTempsMesures valeur actuelle : " + this.mesure);
 
 	}
 	/**
-	 * Permet d'envoyer un tempo ainsi que la mesure  au controller
+	 * Permet d'envoyer un tempo ainsi que la mesure au controller
 	 */
 	public void marquerTempo(){
 		temps_fait ++;

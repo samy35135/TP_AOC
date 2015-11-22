@@ -67,37 +67,48 @@ public class Controller implements IController {
 		if(moteur.getEtatMarche())
 			moteur.setEtatMarche(false);
 	}
-	@Override
-	public void marquerMesure() {
-		System.out.println("Controller ... marquerMesure ");
-		
-	}
+
 
 	@Override
 	public void marquerTemps() {
 		System.out.println("Controller ... marquerTemps ");
 	}
-	
+
 
 	@Override
-	public void updateEnMarche(IEngine engine){
-		if (engine.getEtatMarche()){
+	public void updateEnMarche(){
+		if (moteur.getEtatMarche()){
 			// faire action ici
 		}
 		// si pas en marche couper côté graphique ?
 	}
 
 	@Override
-	public void updateMesure(IEngine engine) {
-		// TODO Auto-generated method stub
-		
+	public void updateMesure() {
+		/**
+		 * Si décalage entre les deux LEDS? allumer TEMPO, ALLUMER MESURE, ETEINDRE MESURE,ETEINDRE TEMPO
+		 */
+		materiel.afficheur.allumerLED(1);
+		materiel.afficheur.eteindreLED(1);
 	}
 
 	@Override
-	public void updateTemps(IEngine engine) {
-		// TODO Auto-generated method stub
-		
+	public void updateTemps() {
+		materiel.getAfficheur().afficherTempo(moteur.getTempo());
 	}
+
+
+
+	@Override
+	public void augmenterMesure() {
+		moteur.setNbTempsMesures(moteur.getNbTempsMesures()+1);
+	}
+
+	@Override
+	public void decrementerMesure() {
+		moteur.setNbTempsMesures(moteur.getNbTempsMesures()-1);
+	}
+
 
 	public IIHM getIhm() {
 		return ihm;

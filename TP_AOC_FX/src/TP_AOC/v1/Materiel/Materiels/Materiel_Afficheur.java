@@ -59,9 +59,7 @@ public class Materiel_Afficheur implements Afficheur {
 
     @Override
     public void afficherTempo(int valeurTempo) {
-        /**
-         * Afficher valeurTempo à l'écran
-         */
+        materiel.getIhm().changerAffichageTempo("" + valeurTempo);
     }
 
 

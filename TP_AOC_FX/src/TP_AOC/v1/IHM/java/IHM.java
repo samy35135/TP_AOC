@@ -27,6 +27,10 @@ public class IHM  extends Application implements Initializable, BStartandStop, I
 	 * Yo ma2thieu, petite liste de chose à faire :
 	 *  - Passer l'état initial du bouton start à FAUX au démarrage
 	 *  - Bien passer par setEtat quand tu changes l'état, ça appel le controller
+	 *  - Lorsqu'on monte la mesure ça appel à "augmenterTemps" là
+	 *  - Faudrait supprimer l'afficheur mesure, parce que sinon on devrra produire du code dnas al V2 après
+	 *  - Faire en sorte que Materiel_afficheur, allume les bonnes leds enfonction des paramètes
+	 *
 	 */
 	private static IController controller;
 
@@ -73,7 +77,6 @@ public class IHM  extends Application implements Initializable, BStartandStop, I
 			Scene scene = new Scene(root,600,320);
 			primaryStage.setScene(scene);
 			primaryStage.show();
-
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -103,6 +106,14 @@ public class IHM  extends Application implements Initializable, BStartandStop, I
 		      }
 		    });
 	}
+
+	/***************************************     Afficheur Tempo   ***************************************/
+
+	public void changerAffichageTempo(String value){
+		affichagetempo.setText(value);
+	}
+
+
 
 	/***************************************     BStartandStop   ***************************************/
 
@@ -167,21 +178,25 @@ public class IHM  extends Application implements Initializable, BStartandStop, I
 
 	}
 
-	/***************************************    TEMPS    ***************************************/
+	/***************************************    Mesure    ***************************************/
 
 	/**
-	 * permet d'augmenter le temps
+	 * Permet d'augmenter la mesure
 	 * @param event
      */
 	@FXML
-	public void augmenterTemps(ActionEvent event){}
+	public void augmenterMesure(ActionEvent event){
+		controller.augmenterMesure();
+	}
 
 	/**
-	 * permet de réduire le temps
+	 * Permet de réduire la mesure
 	 * @param event
      */
 	@FXML
-	public void reduireTemps(ActionEvent event){}
+	public void reduireMesure(ActionEvent event){
+		controller.decrementerMesure();
+	}
 
 
 
