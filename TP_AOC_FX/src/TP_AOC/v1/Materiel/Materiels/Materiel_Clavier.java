@@ -1,17 +1,19 @@
-package TP_AOC.v1.Materiel.Materiel;
+package TP_AOC.v1.Materiel.Materiels;
 
 
 import TP_AOC.v1.Materiel.Interface.Clavier;
+import TP_AOC.v1.Materiel.Materiel;
 
 /**
  * 
  */
 public class Materiel_Clavier implements Clavier {
-
+    Materiel materiel;
     /**
      * Default constructor
      */
-    public Materiel_Clavier() {
+    public Materiel_Clavier(Materiel materiel) {
+        this.materiel = materiel;
     }
 
 

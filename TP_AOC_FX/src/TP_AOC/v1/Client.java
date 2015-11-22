@@ -20,11 +20,17 @@ public class Client {
 
 
 
+        // Le controller connait Materiel mais pas l'ihm
+        // Materiel connait l'ihm mais pas le controller
+        // l'ihm connait le controller
+
         controller.setIhm(ihm);
+
+
         controller.setMateriel(materiel);
+        materiel.setIhm(ihm);
         // amélioration des getters et setter comme le projet editeur de l'année dernière ?
         ihm.setController(controller);
-
 
 
 

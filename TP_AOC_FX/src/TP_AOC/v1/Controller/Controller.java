@@ -56,10 +56,17 @@ public class Controller implements IController {
 
 	@Override
 	public void demarrer() {
+		System.out.println("Controller ... demarrer ");
 		if(!moteur.getEtatMarche())
 			moteur.setEtatMarche(true);
 	}
-	
+
+	@Override
+	public void arreter(){
+		System.out.println("Controller ... arrêter ");
+		if(moteur.getEtatMarche())
+			moteur.setEtatMarche(false);
+	}
 	@Override
 	public void marquerMesure() {
 		System.out.println("Controller ... marquerMesure ");

@@ -26,6 +26,7 @@ public class IHM  extends Application implements Initializable, BStartandStop, I
 	/**
 	 * Yo ma2thieu, petite liste de chose à faire :
 	 *  - Passer l'état initial du bouton start à FAUX au démarrage
+	 *  - Bien passer par setEtat quand tu changes l'état, ça appel le controller
 	 *  - remplir la fonction allumerLED suivant les commentaires
 	 *  - remplir la fonction eteindreLED suivant les commentaires
 	 *  - remplir la fonction afficherTempo
@@ -56,6 +57,7 @@ public class IHM  extends Application implements Initializable, BStartandStop, I
 	 * Controller
 	 */
 	public IHM(){
+		etat = false;
 	}
 
 
@@ -67,6 +69,7 @@ public class IHM  extends Application implements Initializable, BStartandStop, I
 
 	@Override
 	public void demarrer(){
+		System.out.println("IHM .... demarrer :" + controller);
 		launch();
 	}
 
@@ -89,7 +92,6 @@ public class IHM  extends Application implements Initializable, BStartandStop, I
      */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
 		slider.setMin(30);
 		slider.setMax(300);
 		slider.setValue(40);
@@ -108,6 +110,7 @@ public class IHM  extends Application implements Initializable, BStartandStop, I
 		        affichagetempo.setText(Math.round(newValue.intValue()) + "");
 		      }
 		    });
+		System.out.println(" IHM ... initialize " +controller);
 	}
 
 	/***************************************     BStartandStop   ***************************************/
@@ -131,8 +134,7 @@ public class IHM  extends Application implements Initializable, BStartandStop, I
 	@Override
 	public void initialisationStart(){
 		startandstop.getStyleClass().add(0,"startbutton");
-		etat=true;
-		setEtat(etat);
+		//setEtat(true);
 		startandstop.setText("START");		
 	}
 
@@ -155,8 +157,7 @@ public class IHM  extends Application implements Initializable, BStartandStop, I
 	public void BoutonEtatStop(ObservableList<String> css){
 		css.remove(0);
 		css.add(0, "stopbutton");
-		etat=false; 
-		setEtat(etat);
+		setEtat(false);
 		startandstop.setText("STOP");
 	}
 	@Override
@@ -166,6 +167,14 @@ public class IHM  extends Application implements Initializable, BStartandStop, I
 	@Override
 	public void setEtat(boolean etat){
 		this.etat=etat;
+		if(this.etat)
+			controller.demarrer();
+		else{
+			System.out.println("IHM ... setEtat " + this.getController());
+			controller.arreter();
+		}
+
+
 	}
 
 	/***************************************    TEMPS    ***************************************/
@@ -191,8 +200,6 @@ public class IHM  extends Application implements Initializable, BStartandStop, I
 	public IController getController() {
 		return controller;
 	}
-	public void setController(IController controller) {
-		this.controller = controller;
-	}
+	public void setController(IController controller) { this.controller = controller; }
 
 }

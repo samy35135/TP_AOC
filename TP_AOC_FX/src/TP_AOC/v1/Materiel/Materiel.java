@@ -2,14 +2,14 @@ package TP_AOC.v1.Materiel;
 
 
 import TP_AOC.v1.IHM.java.IIHM;
-import TP_AOC.v1.Materiel.Interface.Afficheur;
-import TP_AOC.v1.Materiel.Interface.Clavier;
-import TP_AOC.v1.Materiel.Interface.Molette;
+import TP_AOC.v1.Materiel.Interface.*;
+import TP_AOC.v1.Materiel.Materiels.*;
 
 /**
  * Permet d'accéder aux interfaces de contrôle du matériel
  */
 public class Materiel {
+
 
     public IIHM ihm;
 
@@ -17,51 +17,56 @@ public class Materiel {
 
     public Molette molette;
 
-    public Materiel.EmetteurSonore emetteurSonore;
+    public EmetteurSonore emetteurSonore;
 
-    public Materiel.Materiel_Clavier clavier;
+    public Clavier clavier;
 
     /**
      * Default constructor
      */
     public Materiel() {
-        afficheur = new Materiel.Materiel_Afficheur();
-
-        molette = new Materiel.Materiel_Molette();
-
+        afficheur = new Materiel_Afficheur(this);
+        molette = new Materiel_Molette(this);
+        emetteurSonore = new Materiel_EmetteurSonore(this);
+        clavier = new Materiel_Clavier(this);
     }
+
 
 
     /**
      * @return
      */
-    public static Clavier getClavier() {
-        // TODO implement here
-        return null;
+    public Clavier getClavier() {
+        return clavier;
     }
 
     /**
      * @return
      */
-    public static Molette getMolette() {
-        // TODO implement here
-        return null;
+    public Molette getMolette() {
+        return molette;
     }
 
     /**
      * @return
      */
-    public static Materiel.EmetteurSonore getEmetteurSonore() {
-        // TODO implement here
-        return null;
+    public  EmetteurSonore getEmetteurSonore() {
+        return emetteurSonore;
     }
 
     /**
      * @return
      */
-    public static Afficheur getAfficheur() {
-        // TODO implement here
-        return null;
+    public Afficheur getAfficheur() {
+        return afficheur;
+    }
+
+    public IIHM getIhm() {
+        return ihm;
+    }
+
+    public void setIhm(IIHM ihm) {
+        this.ihm = ihm;
     }
 
 }

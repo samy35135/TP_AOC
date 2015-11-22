@@ -3,7 +3,7 @@ package TP_AOC.v1.Materiel.Interface;
 /**
  * Created by samyabh on 22/11/2015.
  */
-public interface IEmetteurSonore {
+public interface EmetteurSonore {
     /**
      * Permet d'emettre le son pour le tempo
      */

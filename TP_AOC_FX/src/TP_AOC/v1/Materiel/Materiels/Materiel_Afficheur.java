@@ -1,16 +1,19 @@
-package TP_AOC.v1.Materiel.Materiel;
+package TP_AOC.v1.Materiel.Materiels;
 
 import TP_AOC.v1.Materiel.Interface.Afficheur;
+import TP_AOC.v1.Materiel.Materiel;
 
 /**
  * 
  */
 public class Materiel_Afficheur implements Afficheur {
 
+    Materiel materiel;
     /**
      * Default constructor
      */
-    public Materiel_Afficheur() {
+    public Materiel_Afficheur(Materiel materiel) {
+        this.materiel = materiel;
     }
     /**
      * 1 : pour led tempo
