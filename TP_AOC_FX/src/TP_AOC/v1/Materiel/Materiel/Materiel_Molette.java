@@ -1,5 +1,7 @@
-package TP_AOC.v1.Materiel;
+package TP_AOC.v1.Materiel.Materiel;
 
+
+import TP_AOC.v1.Materiel.Interface.Molette;
 
 /**
  * 

@@ -1,15 +1,14 @@
 package TP_AOC.v1.Controller;
 
-import TP_AOC.v1.Engine.Commande.Command;
+import TP_AOC.v1.Engine.Command.Command;
 import TP_AOC.v1.Engine.Engine;
 import TP_AOC.v1.Engine.IEngine;
-import TP_AOC.v1.Engine.Commande.MarquerMesure;
-import TP_AOC.v1.Engine.Commande.MarquerTemps;
+import TP_AOC.v1.Engine.Command.MarquerMesure;
+import TP_AOC.v1.Engine.Command.MarquerTemps;
 import TP_AOC.v1.Engine.SignalMoteur;
-import TP_AOC.v1.Engine.Commande.UpdateMarche;
-import TP_AOC.v1.Engine.Commande.UpdateMesure;
-import TP_AOC.v1.Engine.Commande.UpdateTemps;
-import TP_AOC.v1.IHM.java.IHM;
+import TP_AOC.v1.Engine.Command.UpdateMarche;
+import TP_AOC.v1.Engine.Command.UpdateMesure;
+import TP_AOC.v1.Engine.Command.UpdateTemps;
 import TP_AOC.v1.IHM.java.IIHM;
 import TP_AOC.v1.Materiel.Materiel;
 

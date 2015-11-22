@@ -1,8 +1,10 @@
 package TP_AOC.v1.Materiel;
 
 
-import TP_AOC.v1.Engine.Horloge.Horloge;
 import TP_AOC.v1.IHM.java.IIHM;
+import TP_AOC.v1.Materiel.Interface.Afficheur;
+import TP_AOC.v1.Materiel.Interface.Clavier;
+import TP_AOC.v1.Materiel.Interface.Molette;
 
 /**
  * Permet d'accéder aux interfaces de contrôle du matériel
@@ -15,17 +17,17 @@ public class Materiel {
 
     public Molette molette;
 
-    public EmetteurSonore emetteurSonore;
+    public Materiel.EmetteurSonore emetteurSonore;
 
-    public Materiel_Clavier clavier;
+    public Materiel.Materiel_Clavier clavier;
 
     /**
      * Default constructor
      */
     public Materiel() {
-        afficheur = new Materiel_Afficheur();
+        afficheur = new Materiel.Materiel_Afficheur();
 
-        molette = new Materiel_Molette();
+        molette = new Materiel.Materiel_Molette();
 
     }
 
@@ -49,7 +51,7 @@ public class Materiel {
     /**
      * @return
      */
-    public static EmetteurSonore getEmetteurSonore() {
+    public static Materiel.EmetteurSonore getEmetteurSonore() {
         // TODO implement here
         return null;
     }

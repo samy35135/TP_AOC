@@ -1,6 +1,6 @@
 package TP_AOC.v1.Engine;
 
-import TP_AOC.v1.Engine.Commande.Command;
+import TP_AOC.v1.Engine.Command.Command;
 
 /**
  * 
