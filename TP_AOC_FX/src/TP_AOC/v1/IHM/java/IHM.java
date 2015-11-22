@@ -27,9 +27,6 @@ public class IHM  extends Application implements Initializable, BStartandStop, I
 	 * Yo ma2thieu, petite liste de chose à faire :
 	 *  - Passer l'état initial du bouton start à FAUX au démarrage
 	 *  - Bien passer par setEtat quand tu changes l'état, ça appel le controller
-	 *  - remplir la fonction allumerLED suivant les commentaires
-	 *  - remplir la fonction eteindreLED suivant les commentaires
-	 *  - remplir la fonction afficherTempo
 	 */
 	private IController controller;
 
