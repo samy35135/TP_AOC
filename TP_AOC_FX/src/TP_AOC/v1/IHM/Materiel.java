@@ -2,7 +2,6 @@ package TP_AOC.v1.IHM;
 
 
 import TP_AOC.v1.Engine.Horloge.Horloge;
-import TP_AOC.v1.Engine.Horloge.Materiel_Horloge;
 
 /**
  * Permet d'accéder aux interfaces de contrôle du matériel

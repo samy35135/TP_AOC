@@ -11,26 +11,16 @@ import TP_AOC.v1.Engine.Commande.Command;
 public interface Horloge {
 
     /**
-     * Appel périodique de l'opération execute() de cmd,
-     * toutes les périodesEnSecondes secondes,
-     * avec une précision d'une miliseconde
-     * @param cmd 
-     * @param periodeEnSecondes
+     * permet de changer la fréquence de répétition
      */
-    public void activerPeriodiquement(Command cmd, float periodeEnSecondes);
+    public void changerFrequence(int frequence);
+    /**
+     * permet de démarrer à la fréquence donner préalablement
+     */
+    public void demarrer();
 
     /**
-     * Appel de l'opération execute() de cmd, 
-     * après un délai de délaiEnSecondes secondes,
-     * avec une précision d'une millisecondes
-     * @param cmd 
-     * @param delaiEnSecondes
+     * Permet d'arrêter l'appel à l'engine
      */
-    public void activerApresDelai(Command cmd, float delaiEnSecondes);
-
-    /**
-     * @param cmd
-     */
-    public void desactiver(Command cmd);
-
+    public void stop();
 }

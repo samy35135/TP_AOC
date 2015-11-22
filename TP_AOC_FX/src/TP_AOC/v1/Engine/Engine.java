@@ -1,6 +1,7 @@
 package TP_AOC.v1.Engine;
 
 import TP_AOC.v1.Engine.Commande.Command;
+import TP_AOC.v1.Engine.Horloge.Horloge;
 import TP_AOC.v1.Engine.Horloge.Horloge_Tempo;
 
 import java.util.Hashtable;
@@ -14,7 +15,8 @@ public class Engine implements IEngine{
 	private int temps_fait = 0;
 
 	// constante 30 et 300
-
+	//
+	private Horloge horloge;
 	private Horloge_Tempo horloge_marquer_tempo;
 	
 	public static final int TEMPO_MAX = 7;
@@ -55,7 +57,7 @@ public class Engine implements IEngine{
 
 	}
 	/**
-	 * Permet d'envoyer un tempo au moteur ainsi que la mesure s'il faut au controller
+	 * Permet d'envoyer un tempo ainsi que la mesure  au controller
 	 */
 	public void marquerTempo(){
 		temps_fait ++;
@@ -65,6 +67,7 @@ public class Engine implements IEngine{
 			temps_fait = 0;
 		}
 	}
+
 	@Override
 	public void addCommand(SignalMoteur signalMoteur, Command cmd) {
 		if(!map_commandes.containsKey(signalMoteur)){
