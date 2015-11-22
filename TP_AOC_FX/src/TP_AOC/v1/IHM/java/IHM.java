@@ -3,6 +3,7 @@ package TP_AOC.v1.IHM.java;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import TP_AOC.v1.Controller.IController;
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -21,6 +22,9 @@ import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 public class IHM  extends Application implements Initializable, BStartandStop, IIHM {
+
+
+	private IController controller;
 
 	@FXML
 	private AnchorPane layout; //fx:id="layout"
@@ -48,6 +52,11 @@ public class IHM  extends Application implements Initializable, BStartandStop, I
 	public IHM(){
 	}
 
+
+
+
+	/***************************************    Fenêtre graphique   ***************************************/
+
 	@Override
 	public void demarrer(){
 		launch();
@@ -68,7 +77,7 @@ public class IHM  extends Application implements Initializable, BStartandStop, I
 	}
 
 	/**
-     * 
+     * Initialisation des caractéristiques de la fenêtre
      */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -92,7 +101,14 @@ public class IHM  extends Application implements Initializable, BStartandStop, I
 		      }
 		    });
 	}
-	
+
+	/***************************************    BoutonSTART   et etat   ***************************************/
+	/****** Gestion du bouton START et de l'état de fonctionnement ******/
+
+	/**
+	 * permet de gerer les évenement du bouton start and stop
+	 * @param event
+	 */
 	@FXML
 	public void gestioneventstartandstop(ActionEvent event){
 		ObservableList<String> cssclass;
@@ -100,20 +116,31 @@ public class IHM  extends Application implements Initializable, BStartandStop, I
 		if(cssclass.contains("startbutton")){BoutonEtatStop(cssclass);
 		}else{BoutonEtatStart(cssclass);}
 	}
-	
+
+	/**
+	 * Initialise le bouton start et l'état à true
+	 */
 	public void initialisationStart(){
 		startandstop.getStyleClass().add(0,"startbutton");
 		etat=true;
 		setEtat(etat);
 		startandstop.setText("START");		
 	}
-	
+
+	/**
+	 * permet de passer l'état à true lorsque l'utilisateur appuie sur le bouton start
+	 * @param css
+     */
 	public void BoutonEtatStart(ObservableList<String> css){
 		css.remove(0);
 		css.add(0, "startbutton");
 		startandstop.setText("START");
 	}
-	
+
+	/**
+	 * permet de passer l'état à false lorsque l'utilisateur appuie sur le bouton start
+	 * @param css
+     */
 	public void BoutonEtatStop(ObservableList<String> css){
 		css.remove(0);
 		css.add(0, "stopbutton");
@@ -121,16 +148,39 @@ public class IHM  extends Application implements Initializable, BStartandStop, I
 		setEtat(etat);
 		startandstop.setText("STOP");
 	}
-	
+
+
+
+	/***************************************    TEMPS    ***************************************/
+
+	/**
+	 * permet d'augmenter le temps
+	 * @param event
+     */
+	@FXML
+	public void augmenterTemps(ActionEvent event){}
+
+	/**
+	 * permet de réduire le temps
+	 * @param event
+     */
+	@FXML
+	public void reduireTemps(ActionEvent event){}
+
+
+
+	/***************************************   getter and setters   ***************************************/
 	public boolean getEtat(){
 		return etat;
 	}
 	public void setEtat(boolean etat){
 		this.etat=etat;
 	}
-	@FXML
-	public void augmenterTemps(ActionEvent event){}
-	@FXML
-	public void reduireTemps(ActionEvent event){}
+	public IController getController() {
+		return controller;
+	}
+	public void setController(IController controller) {
+		this.controller = controller;
+	}
 
 }

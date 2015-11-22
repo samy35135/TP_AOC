@@ -19,6 +19,9 @@ import TP_AOC.v1.IHM.java.IIHM;
 public class Controller implements IController {
 
 	IEngine moteur;
+
+
+
 	IIHM ihm;
 	Command marquerTemps;
 	Command marquerMesure;
@@ -28,7 +31,6 @@ public class Controller implements IController {
      */
     public Controller() {
     	initialisation_moteur();
-		initialisation_IHM();
     }
 
 	/**
@@ -50,16 +52,6 @@ public class Controller implements IController {
 		System.out.println("Controller...  initialisation_moteur - Fin");
     }
 
-	/**
-	 * Permet d'initiliser la vue
-	 */
-	private void initialisation_IHM(){
-		System.out.println("Controller...  initialisation_IHM - Début");
-		ihm = new IHM();
-		ihm.demarrer();
-		System.out.println("Controller...  initialisation_IHM - Fin");
-	}
-    
 	@Override
 	public void demarrer() {
 		if(!moteur.getEtatMarche())
@@ -98,6 +90,12 @@ public class Controller implements IController {
 		
 	}
 
+	public IIHM getIhm() {
+		return ihm;
+	}
 
+	public void setIhm(IIHM ihm) {
+		this.ihm = ihm;
+	}
 
 }
