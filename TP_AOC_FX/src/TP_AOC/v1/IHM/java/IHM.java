@@ -136,7 +136,7 @@ public class IHM  extends Application implements Initializable, BStartandStop, I
 	@Override
 	public void initialisationStart(){
 		startandstop.getStyleClass().add(0,"startbutton");
-		startandstop.setText("START");		
+		startandstop.setText("OFF");		
 	}
 
 	/**
@@ -148,7 +148,7 @@ public class IHM  extends Application implements Initializable, BStartandStop, I
 		css.remove(0);
 		css.add(0, "startbutton");
 		setEtat(true);
-		startandstop.setText("START");
+		startandstop.setText("OFF");
 	}
 
 	/**
@@ -160,7 +160,7 @@ public class IHM  extends Application implements Initializable, BStartandStop, I
 		css.remove(0);
 		css.add(0, "stopbutton");
 		setEtat(false);
-		startandstop.setText("STOP");
+		startandstop.setText("ON");
 	}
 	@Override
 	public boolean getEtat(){
