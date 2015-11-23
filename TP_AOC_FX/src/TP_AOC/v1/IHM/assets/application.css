@@ -2,12 +2,8 @@
 .background{
     -fx-background-color:#E9EAEB;
 }
-#startandstop{
-    -fx-background-radius:50;
-}
 .startbutton{
     -fx-background-color:#E10303;
-
 }
 #startandstop:hover{
     -fx-opacity:0.7;
@@ -15,7 +11,6 @@
 .stopbutton{
     -fx-background-color:#3AF24B;
 }
-
 #buttonplus{
     -fx-background-color:#008AFC;
     -fx-padding: 2 15;
