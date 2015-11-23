@@ -61,6 +61,4 @@ public class Materiel_Afficheur implements Afficheur {
     public void afficherTempo(int valeurTempo) {
         materiel.getIhm().changerAffichageTempo("" + valeurTempo);
     }
-
-
 }

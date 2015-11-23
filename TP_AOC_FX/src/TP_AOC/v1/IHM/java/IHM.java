@@ -110,7 +110,6 @@ public class IHM  extends Application implements Initializable, BStartandStop, I
 
 	public void changerAffichageTempo(String value){
 		//affichagetempo.setText(value);
-
 	}
 
 
