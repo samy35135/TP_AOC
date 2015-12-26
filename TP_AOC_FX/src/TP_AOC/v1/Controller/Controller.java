@@ -74,16 +74,16 @@ public class Controller implements IController {
 		/**
 		 * Si décalage entre les deux LEDS? allumer TEMPO, ALLUMER MESURE, ETEINDRE MESURE,ETEINDRE TEMPO
 		 */
-		materiel.afficheur.allumerLED(2);
+		materiel.afficheur.allumerLEDMesure();
 		materiel.getEmetteurSonore().emettreSonMesure();
-		materiel.afficheur.eteindreLED(2);
+		materiel.afficheur.eteindreLEDMesure();
 	}
 
 	@Override
 	public void marquerTemps() {
-		materiel.afficheur.allumerLED(1);
+		materiel.afficheur.allumerLEDTemps();
 		materiel.getEmetteurSonore().emettreSonTempo();
-		materiel.afficheur.eteindreLED(1);
+		materiel.afficheur.eteindreLEDTemps();
 	}
 
 

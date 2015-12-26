@@ -7,19 +7,24 @@ public interface Afficheur {
 
 
     /**
-     * 1 : pour led tempo
-     * 2 : pour led mesure
-     * @param numLED
+     * allume la led tempo(doite)
      */
-    public void allumerLED(int numLED);
+    public void allumerLEDTemps();
 
     /**
-     * 1 : pour led tempo
-     * 2 : pour led mesure
-     * @param numLED
+     * eteinds la led tempo(doite)
      */
-    public void eteindreLED(int numLED);
-
+    public void eteindreLEDTemps();
+    
+    /**
+     * allume la led mesure(gauche)
+     */
+    public void allumerLEDMesure();
+    
+    /**
+     * eteinds la led mesure(gauche)
+     */
+    public void eteindreLEDMesure();
     /**
      * Affiche un entier sur l'afficheur externe du métronome
      * @param valeurTempo
