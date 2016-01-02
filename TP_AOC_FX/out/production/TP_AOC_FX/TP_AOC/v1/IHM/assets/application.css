@@ -2,13 +2,13 @@
 .background{
     -fx-background-color:#E9EAEB;
 }
-.startbutton{
-    -fx-background-color:#E10303;
-}
-#startandstop:hover{
+#onandoff:hover{
     -fx-opacity:0.7;
 }
-.stopbutton{
+.offbutton{
+    -fx-background-color:#E10303;
+}
+.onbutton{
     -fx-background-color:#3AF24B;
 }
 #buttonplus{
@@ -33,9 +33,13 @@
     -fx-text-fill:white;
     -fx-font-size:25.0;
 }
-#ledgauche{
+.off{
+	-fx-fill: #07090c;
+	-fx-stroke:black
+}
+.onmesure{
     -fx-fill:#F8810A;
 }
-#leddroite{
+.ontemps{
     -fx-fill:#E00AF8;
 }

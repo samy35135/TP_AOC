@@ -19,9 +19,6 @@ import TP_AOC.v1.Materiel.Materiel;
 public class Controller implements IController {
 
 	IEngine moteur;
-
-
-
 	Materiel materiel;
 
 	IIHM ihm;
@@ -70,20 +67,9 @@ public class Controller implements IController {
 
 
 	@Override
-	public void marquerMesure() {
-		/**
-		 * Si décalage entre les deux LEDS? allumer TEMPO, ALLUMER MESURE, ETEINDRE MESURE,ETEINDRE TEMPO
-		 */
-		materiel.afficheur.allumerLEDMesure();
-		materiel.getEmetteurSonore().emettreSonMesure();
-		materiel.afficheur.eteindreLEDMesure();
-	}
-
-	@Override
-	public void marquerTemps() {
-		materiel.afficheur.allumerLEDTemps();
-		materiel.getEmetteurSonore().emettreSonTempo();
-		materiel.afficheur.eteindreLEDTemps();
+	public void setTempoDepuisIHM(int val) {
+		System.out.println("Controller ... setTempoDepuisIHM ");
+		moteur.setTempo(val);
 	}
 
 
@@ -100,15 +86,43 @@ public class Controller implements IController {
 
 	@Override
 	public void updateMesure() {
-		// rien à mettre ?
+		/**
+		 * Si décalage entre les deux LEDS? allumer TEMPO, ALLUMER MESURE, ETEINDRE MESURE,ETEINDRE TEMPO
+		 */
+		materiel.afficheur.allumerLED(2);
+		materiel.afficheur.allumerLED(1);
+		materiel.getEmetteurSonore().emettreSonMesure();
+		materiel.getEmetteurSonore().emettreSonTempo();
+		try {
+			Thread.sleep(50);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		materiel.afficheur.eteindreLED(2);
+		materiel.afficheur.eteindreLED(1);
+	}
+
+	/**
+	 * Permet de marquer le temps à l'IHM
+	 */
+	@Override
+	public void marquerTemps(){
+		materiel.afficheur.allumerLED(1);
+		materiel.getEmetteurSonore().emettreSonTempo();
+		try {
+			Thread.sleep(50);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		materiel.afficheur.eteindreLED(1);
 	}
 
 	@Override
 	public void updateTemps() {
-		materiel.getAfficheur().afficherTempo(moteur.getTempo());
+		System.out.println("Controller...  updateTemps - Début");
+		int tempo = moteur.getTempo();
+		//materiel.getAfficheur().afficherTempo(tempo);
 	}
-
-
 
 	@Override
 	public void augmenterMesure() {

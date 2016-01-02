@@ -12,16 +12,17 @@
 
 <AnchorPane fx:id="layout" prefHeight="312.0" prefWidth="600.0" styleClass="background" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TP_AOC.v1.IHM.java.IHM">
     <children>
-        <Button fx:id="startandstop" layoutX="14.0" layoutY="19.0" mnemonicParsing="false" onAction="#gestioneventstartandstop" prefHeight="68.0" prefWidth="75.0" />
+        <Button fx:id="onandoff" layoutX="14.0" layoutY="19.0" minHeight="28.0" minWidth="42.0" mnemonicParsing="false" onAction="#gestioneventstartandstop" prefHeight="28.0" prefWidth="42.0" textAlignment="CENTER" />
         <Button fx:id="buttonplus" layoutX="212.0" layoutY="251.0" mnemonicParsing="false" onAction="#augmenterMesure" text="+" />
         <Button fx:id="buttonmoins" layoutX="368.0" layoutY="251.0" mnemonicParsing="false" onAction="#reduireMesure" text="-" />
         <Slider fx:id="slider" layoutX="257.0" layoutY="19.0" prefHeight="83.0" prefWidth="111.0" />
         <Label layoutX="289.0" layoutY="19.0" text="TEMPO" />
-        <Label fx:id="affichagetempo" alignment="CENTER" contentDisplay="TOP" layoutX="197.0" layoutY="108.0" prefHeight="104.0" prefWidth="230.0" textOverrun="CLIP" />
-        <Label fx:id="affichagetpparmesure" alignment="CENTER" contentDisplay="CENTER" layoutX="293.0" layoutY="243.0" prefHeight="38.0" prefWidth="39.0" text="2" />
+        <Label fx:id="affichagetempo" text="60" alignment="CENTER" contentDisplay="TOP" layoutX="197.0" layoutY="108.0" prefHeight="104.0" prefWidth="230.0" textOverrun="CLIP" />
+        <!--<Label fx:id="affichagetpparmesure" alignment="CENTER" contentDisplay="CENTER" layoutX="293.0" layoutY="243.0" prefHeight="38.0" prefWidth="39.0" text="2" />
+        -->
         <Label layoutX="34.0" layoutY="148.0" text="1°/Mesure " />
         <Label layoutX="514.0" layoutY="148.0" text="Temps" />
-        <Circle fx:id="ledgauche" fill="DODGERBLUE" layoutX="132.0" layoutY="156.0" radius="14.0" />
-        <Circle fx:id="leddroite" fill="DODGERBLUE" layoutX="477.0" layoutY="156.0" radius="14.0" />
+        <Circle fx:id="ledgaucheMesure" layoutX="132.0" layoutY="156.0" radius="14.0" />
+        <Circle fx:id="leddroiteTemps" layoutX="477.0" layoutY="156.0" radius="14.0" />
     </children>
 </AnchorPane>

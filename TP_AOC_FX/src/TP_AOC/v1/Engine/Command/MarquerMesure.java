@@ -22,6 +22,6 @@ public class MarquerMesure implements Command {
 
 	@Override
 	public void execute() {
-		controller.marquerMesure();
+		controller.updateMesure();
 	}
 }

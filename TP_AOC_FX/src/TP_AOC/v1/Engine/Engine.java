@@ -36,15 +36,20 @@ public class Engine implements IEngine{
 
 	@Override
 	public int getTempo() {
-
 		System.out.println("Engine ... getTempo : " + tempo);
 		return tempo;
 	}
 
 	@Override
 	public void setTempo(int t) {
-		if( TEMPO_MIN <= t  && t <= TEMPO_MAX )
+		if( TEMPO_MIN <= t  && t <= TEMPO_MAX ){
 			this.tempo = t;
+			map_commandes.get(SignalMoteur.UpdateTemps).execute();
+			if(horloge_marquer_tempo != null )
+				horloge_marquer_tempo.stop();
+			horloge_marquer_tempo = (horloge_marquer_tempo == null) ? new Horloge_Tempo(this, 60/tempo) : horloge_marquer_tempo;
+			horloge_marquer_tempo.demarrer();
+		}
 	}
 
 	@Override
@@ -65,10 +70,11 @@ public class Engine implements IEngine{
 	 */
 	public void marquerTempo(){
 		temps_fait ++;
-		map_commandes.get(SignalMoteur.MarquerTemps).execute();
 		if(temps_fait == mesure ){
 			map_commandes.get(SignalMoteur.MarquerMesure).execute();
 			temps_fait = 0;
+		}else{
+			map_commandes.get(SignalMoteur.MarquerTemps).execute();
 		}
 	}
 

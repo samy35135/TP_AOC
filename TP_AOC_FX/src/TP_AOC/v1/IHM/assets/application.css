@@ -34,7 +34,7 @@
     -fx-font-size:25.0;
 }
 .off{
-	-fx-fill:#E9EAEB;
+	-fx-fill: #07090c;
 	-fx-stroke:black
 }
 .onmesure{

@@ -18,7 +18,7 @@ public class Materiel_EmetteurSonore implements EmetteurSonore {
 
     @Override
     public void emettreSonTempo() {
-
+    	
     }
 
     @Override

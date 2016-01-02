@@ -18,12 +18,11 @@ public class Materiel_Molette implements Molette {
         this.materiel = materiel;
     }
 
-
     /**
      * 
      */
     public float position() {
-        return 0;
+        return (float) materiel.getIhm().getSlider().getValue();
     }
 
 }
