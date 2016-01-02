@@ -8,6 +8,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import TP_AOC.v1.Controller.IController;
+import TP_AOC.v1.Materiel.Interface.EmetteurSonore;
 import javafx.application.Application;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -27,7 +28,7 @@ import sun.audio.AudioDataStream;
 import sun.audio.AudioPlayer;
 import sun.audio.AudioStream;
 
-public class IHM  extends Application implements Initializable, BStartandStop, IIHM, LEDs, EmetteurSonore {
+public class IHM  extends Application implements Initializable, BStartandStop, IIHM {
 
 	/**
 	 * Yo ma2thieu, petite liste de chose à faire :
@@ -91,18 +92,8 @@ public class IHM  extends Application implements Initializable, BStartandStop, I
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		initialisationFenetre();
-		try {
-			emettreSonTempo();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		slider.setMin(30);
-		slider.setMax(300);
-		slider.setValue(60);
-		slider.setBlockIncrement(10);
-		double slidervalue = slider.getValue();
-		String valueslider=String.valueOf(slidervalue);
+
+		
 		//Number oldValue = Double.parseDouble(text);	
 		/*slider.valueProperty().addListener(new ChangeListener<Number>() {
 		      @Override public void changed(ObservableValue<? extends Number> observableValue, Number oldValue, Number newValue) {
@@ -118,9 +109,9 @@ public class IHM  extends Application implements Initializable, BStartandStop, I
 	 * Initialise bouton et leds au démarrage
 	 */
 	public void initialisationFenetre(){
-		BoutonEtatOFF(onandoff.getStyleClass());	
-		eteindreLedgaucheMesure();
-		eteindreLeddroiteTemps();	
+		BoutonEtatOFF(onandoff.getStyleClass());
+		ledgaucheMesure.getStyleClass().add(0, "off");
+		leddroiteTemps.getStyleClass().add(0, "off");
 	}
 
 	/***************************************     Afficheur Tempo   ***************************************/
@@ -141,8 +132,11 @@ public class IHM  extends Application implements Initializable, BStartandStop, I
 	@FXML
 	@Override
 	public void gestioneventstartandstop(ActionEvent event){
-		if(onandoff.getStyleClass().contains("onbutton")){BoutonEtatOFF(onandoff.getStyleClass());
-		}else{BoutonEtatON(onandoff.getStyleClass());}
+		if(onandoff.getStyleClass().contains("onbutton")){
+			BoutonEtatOFF(onandoff.getStyleClass());
+		}else{
+			BoutonEtatON(onandoff.getStyleClass());
+			}
 	}
 
 	/**
@@ -152,6 +146,7 @@ public class IHM  extends Application implements Initializable, BStartandStop, I
 	@Override
 	public void BoutonEtatON(ObservableList<String> css) {
 		// TODO Auto-generated method stub
+		setEtat(true);
 		css.remove(0);
 		css.add(0, "onbutton");
 		onandoff.setText("ON");
@@ -185,60 +180,13 @@ public class IHM  extends Application implements Initializable, BStartandStop, I
 
 
 	}
-	/***************************************     LEDS   ***************************************/
-	@Override
-	public void allumerLedgaucheMesure() {
-		// TODO Auto-generated method stub
-		if(ledgaucheMesure.getStyleClass().contains("off")){
-			ledgaucheMesure.getStyleClass().remove(0);
-		}
-		ledgaucheMesure.getStyleClass().add(0, "onmesure");
+	/***************************************     LEDS   ****************************************/
+	
+	public Circle getLedgaucheMesure(){
+		return ledgaucheMesure;
 	}
-	@Override
-	public void eteindreLedgaucheMesure() {
-		// TODO Auto-generated method stub
-		if(ledgaucheMesure.getStyleClass().contains("onmesure")){
-			ledgaucheMesure.getStyleClass().remove(0);
-		}
-		ledgaucheMesure.getStyleClass().add(0, "off");
-	}
-	@Override
-	public void allumerLeddroiteTemps() {
-		// TODO Auto-generated method stub
-		if(leddroiteTemps.getStyleClass().contains("off")){
-			leddroiteTemps.getStyleClass().remove(0);
-		}
-		leddroiteTemps.getStyleClass().add(0, "ontemps");
-	}
-	@Override
-	public void eteindreLeddroiteTemps() {
-		// TODO Auto-generated method stub
-		if(leddroiteTemps.getStyleClass().contains("ontemps")){
-			leddroiteTemps.getStyleClass().remove(0);
-		}
-		leddroiteTemps.getStyleClass().add(0, "off");
-	}
-	/***************************************    SON   ***************************************/
-	@Override
-	public void emettreSonTempo() throws Exception {
-		// TODO Auto-generated method stub
-	    String gongFile = "/songs/son1.mp3";
-	    InputStream in = new FileInputStream(gongFile);
-	 
-	    // create an audiostream from the inputstream
-	    AudioStream audioStream = new AudioStream(in);
-	    AudioData audiodata = audioStream.getData();
-	    AudioDataStream audiostream = new AudioDataStream(audiodata);
-	    // play the audio clip with the audioplayer class
-	    AudioPlayer.player.start(audiostream);
-		
-	}
-
-
-	@Override
-	public void emettreSonMesure() {
-		// TODO Auto-generated method stub
-		
+	public Circle getLeddroiteTemps(){
+		return leddroiteTemps;
 	}
 
 	/***************************************    Mesure    ***************************************/

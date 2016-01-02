@@ -14,6 +14,7 @@ public interface IController {
 
 	/**
 	 * Permet au controller de marquer un tempo à l'ihm
+	 * @throws Exception 
 	 */
 	public void marquerTemps();
 

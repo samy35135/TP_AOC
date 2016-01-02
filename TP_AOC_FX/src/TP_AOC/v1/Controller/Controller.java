@@ -19,9 +19,6 @@ import TP_AOC.v1.Materiel.Materiel;
 public class Controller implements IController {
 
 	IEngine moteur;
-
-
-
 	Materiel materiel;
 
 	IIHM ihm;
@@ -80,7 +77,7 @@ public class Controller implements IController {
 	}
 
 	@Override
-	public void marquerTemps() {
+	public void marquerTemps(){
 		materiel.afficheur.allumerLEDTemps();
 		materiel.getEmetteurSonore().emettreSonTempo();
 		materiel.afficheur.eteindreLEDTemps();

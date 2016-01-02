@@ -6,6 +6,7 @@ package TP_AOC.v1.Materiel.Interface;
 public interface EmetteurSonore {
     /**
      * Permet d'emettre le son pour le tempo
+     * @throws Exception 
      */
     public void emettreSonTempo();
     /**

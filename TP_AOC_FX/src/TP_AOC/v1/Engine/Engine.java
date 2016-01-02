@@ -36,7 +36,6 @@ public class Engine implements IEngine{
 
 	@Override
 	public int getTempo() {
-
 		System.out.println("Engine ... getTempo : " + tempo);
 		return tempo;
 	}

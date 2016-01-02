@@ -2,22 +2,15 @@
 .background{
     -fx-background-color:#E9EAEB;
 }
-#startandstop{
-    -fx-background-radius:50;
-}
-.startbutton{
-    -fx-background-color:#3AF24B;
-
-}
-#startandstop:hover{
+#onandoff:hover{
     -fx-opacity:0.7;
-    -fx-cursor:pointer;
 }
-
-.stopbutton{
+.offbutton{
     -fx-background-color:#E10303;
 }
-
+.onbutton{
+    -fx-background-color:#3AF24B;
+}
 #buttonplus{
     -fx-background-color:#008AFC;
     -fx-padding: 2 15;
@@ -40,9 +33,13 @@
     -fx-text-fill:white;
     -fx-font-size:25.0;
 }
-#ledgauche{
+.off{
+	-fx-fill:#E9EAEB;
+	-fx-stroke:black
+}
+.onmesure{
     -fx-fill:#F8810A;
 }
-#leddroite{
+.ontemps{
     -fx-fill:#E00AF8;
 }
