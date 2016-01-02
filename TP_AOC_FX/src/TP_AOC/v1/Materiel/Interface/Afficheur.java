@@ -12,12 +12,6 @@ public interface Afficheur {
      * @param numLED
      */
     public void allumerLED(int numLED);
-
-    /**
-     * 1 : pour led tempo
-     * 2 : pour led mesure
-     * @param numLED
-     */
     public void eteindreLED(int numLED);
 
     /**

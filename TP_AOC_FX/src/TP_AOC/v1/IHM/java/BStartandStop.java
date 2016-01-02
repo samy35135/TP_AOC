@@ -4,10 +4,9 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 
 public interface BStartandStop {
-	public void initialisationStart();
 	public void gestioneventstartandstop(ActionEvent event);
-	public void BoutonEtatStart(ObservableList<String> css);
-	public void BoutonEtatStop(ObservableList<String> css);
+	public void BoutonEtatOFF(ObservableList<String> css);
+	public void BoutonEtatON(ObservableList<String> css);
 	public boolean getEtat();
 	public void setEtat(boolean etat);
 
