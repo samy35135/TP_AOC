@@ -173,8 +173,6 @@ public class IHM  extends Application implements Initializable, BStartandStop, I
 		else{
 			controller.arreter();
 		}
-
-
 	}
 
 	/***************************************    Mesure    ***************************************/
