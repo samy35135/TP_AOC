@@ -44,11 +44,9 @@ public class Engine implements IEngine{
 	public void setTempo(int t) {
 		if( TEMPO_MIN <= t  && t <= TEMPO_MAX ){
 			this.tempo = t;
+			temps_fait = 0;
+			horloge_marquer_tempo.changerFrequence(((double)60/tempo));
 			map_commandes.get(SignalMoteur.UpdateTemps).execute();
-			if(horloge_marquer_tempo != null )
-				horloge_marquer_tempo.stop();
-			horloge_marquer_tempo = (horloge_marquer_tempo == null) ? new Horloge_Tempo(this, 60/tempo) : horloge_marquer_tempo;
-			horloge_marquer_tempo.demarrer();
 		}
 	}
 

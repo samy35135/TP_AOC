@@ -9,7 +9,7 @@ public interface Horloge {
     /**
      * permet de changer la fréquence de répétition
      */
-    public void changerFrequence(int frequence);
+    public void changerFrequence(double frequence);
     /**
      * permet de démarrer à la fréquence donner préalablement
      */
