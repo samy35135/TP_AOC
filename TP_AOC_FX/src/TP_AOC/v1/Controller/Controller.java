@@ -61,9 +61,12 @@ public class Controller implements IController {
 	@Override
 	public void arreter(){
 		System.out.println("Controller ... arrêter ");
-		if(moteur.getEtatMarche())
+		if(moteur.getEtatMarche()){
 			moteur.setEtatMarche(false);
-	}
+			materiel.afficheur.eteindreLED(2);
+			materiel.afficheur.eteindreLED(1);
+		}
+	}	
 
 
 	@Override
