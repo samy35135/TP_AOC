@@ -1,14 +1,10 @@
 package TP_AOC.v1.IHM.java;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
 import java.net.URL;
-import java.util.ResourceBundle;
+import java.util.*;
 
 import TP_AOC.v1.Controller.IController;
-import TP_AOC.v1.Materiel.Interface.EmetteurSonore;
+import TP_AOC.v1.IHM.java.CommandIHM.CommandIHM;
 import javafx.application.Application;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -23,27 +19,18 @@ import javafx.scene.control.Slider;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
-import sun.audio.AudioData;
-import sun.audio.AudioDataStream;
-import sun.audio.AudioPlayer;
-import sun.audio.AudioStream;
 
 public class IHM extends Application implements Initializable, BStartandStop, IIHM {
 
 	/**
 	 * Yo ma2thieu, petite liste de chose à faire :
-	 * //FAIT - Passer l'état initial du bouton start à FAUX au démarrage
-	 * //FAIT - Bien passer par setEtat quand tu changes l'état, ça appelle le controller
-	 * //MOI je l'M bi1 - Faudrait supprimer l'afficheurs mesure, parce que sinon on devrra produire du code dnas al V2 après
-	 * //FAIT - Faire en sorte que Materiel_afficheur, allume les bonnes leds en fonction des paramètes
 	 * - remplir emettreSonTempo emettreSonMesure (tu peux mettre des sons différents)
 	 * - empecher toute action tant que c'est pas ON, si ça passe à OFF, re-empecher toute action
 	 */
-	private static IController controller;
 
 	private static Scene scene;
-
-	private boolean retour_moteur = false;
+	private static Map<SignalIHM,CommandIHM> map_commandes = new HashMap<>();
+	private Boolean etat;//etat du bouton ON/OFF initialisé à false
 
 	@FXML
 	private AnchorPane layout; //fx:id="layout"
@@ -66,8 +53,6 @@ public class IHM extends Application implements Initializable, BStartandStop, II
 	@FXML
 	private Slider slider;//fx:id="slider"
 
-	private Boolean etat;//etat du bouton ON/OFF initialisé à false
-
 	/**
 	 * Controller
 	 */
@@ -88,7 +73,6 @@ public class IHM extends Application implements Initializable, BStartandStop, II
 	public void start(Stage primaryStage) {
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("../assets/TP_AOC.fxml"));
-
 			Parent root = loader.load();
 			scene = new Scene(root, 600, 320);
 			primaryStage.setScene(scene);
@@ -120,7 +104,7 @@ public class IHM extends Application implements Initializable, BStartandStop, II
 		slider.valueProperty().addListener((observable, oldValue, newValue) -> {
 			if (oldValue.intValue() != newValue.intValue()) {
 				changerAffichageTempo("" + newValue.intValue());
-				controller.setTempoDepuisIHM(newValue.intValue());
+				map_commandes.get(SignalIHM.UpdateMolette).execute();
 			}
 		});
 	}
@@ -169,6 +153,7 @@ public class IHM extends Application implements Initializable, BStartandStop, II
 		css.remove(0);
 		css.add(0, "onbutton");
 		onandoff.setText("ON");
+
 	}
 
 	/**
@@ -193,10 +178,10 @@ public class IHM extends Application implements Initializable, BStartandStop, II
 	@Override
 	public void setEtat(boolean etat) {
 		this.etat = etat;
-		if (this.etat)
-			controller.demarrer();
-		else {
-			controller.arreter();
+		if (this.etat){
+			map_commandes.get(SignalIHM.Demarrer).execute();
+		} else {
+			getMap_commandes().get(SignalIHM.Arreter).execute();
 		}
 	}
 
@@ -232,7 +217,7 @@ public class IHM extends Application implements Initializable, BStartandStop, II
 	 */
 	@FXML
 	public void augmenterMesure(ActionEvent event) {
-		controller.augmenterMesure();
+		map_commandes.get(SignalIHM.AugmenterMesure).execute();
 	}
 
 	/**
@@ -242,20 +227,29 @@ public class IHM extends Application implements Initializable, BStartandStop, II
 	 */
 	@FXML
 	public void reduireMesure(ActionEvent event) {
-		controller.decrementerMesure();
+		map_commandes.get(SignalIHM.ReduireMesure).execute();
 	}
 
 
-	/***************************************
-	 * getter And Setter
-	 ***************************************/
+	/***************************************    Commandes IHM    ***************************************/
 
-	public IController getController() {
-		return controller;
+	@Override
+	public void addCommandIHM(SignalIHM signalihm, CommandIHM cmd) {
+		if(!map_commandes.containsKey(signalihm)){
+			map_commandes.put(signalihm, cmd);
+			System.out.println("IHM ... ajout " + signalihm.toString());
+		}else{
+			System.out.println("IHM ... refus ajout " + signalihm.toString());
+		}
 	}
 
-	public void setController(IController controller) {
-		this.controller = controller;
+
+	public static Map<SignalIHM, CommandIHM> getMap_commandes() {
+		return map_commandes;
+	}
+
+	public static void setMap_commandes(Map<SignalIHM, CommandIHM> map_commandes) {
+		IHM.map_commandes = map_commandes;
 	}
 
 }

@@ -24,7 +24,7 @@ public interface IController {
 	/**
 	 * permet au controller de changer le tempo de l'engine
 	 */
-	public void setTempoDepuisIHM(int value);
+	public void setTempoDepuisIHM();
 
 	/**
 	 * Permet à l'engine de dire au controller que la valeur de Mesure a changé
