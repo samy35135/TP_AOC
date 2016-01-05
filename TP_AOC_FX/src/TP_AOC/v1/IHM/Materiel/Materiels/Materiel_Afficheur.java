@@ -58,34 +58,26 @@ public class Materiel_Afficheur implements Afficheur {
 
 	public void allumerLEDMesure() {
 		Circle ledgaucheMesure=materiel.getIhm().getLedgaucheMesure();
-		if(ledgaucheMesure.getStyleClass().contains("off")){
-			ledgaucheMesure.getStyleClass().remove(0);
-		}
+		ledgaucheMesure.getStyleClass().remove(0);
 		ledgaucheMesure.getStyleClass().add(0, "onmesure");
 	}
 
 	public void eteindreLEDMesure() {
 		Circle ledgaucheMesure=materiel.getIhm().getLedgaucheMesure();
-		if(ledgaucheMesure.getStyleClass().contains("onmesure")){
-			ledgaucheMesure.getStyleClass().remove(0);
-		}
+		ledgaucheMesure.getStyleClass().remove(0);
 		ledgaucheMesure.getStyleClass().add(0, "off");
 	}
 
 
 	public void allumerLEDTemps() {
 		Circle leddroiteTemps = materiel.getIhm().getLeddroiteTemps();
-		if (leddroiteTemps.getStyleClass().contains("off")) {
-			leddroiteTemps.getStyleClass().remove(0);
-		}
+		leddroiteTemps.getStyleClass().remove(0);
 		leddroiteTemps.getStyleClass().add(0, "ontemps");
 	}
 
 	public void eteindreLEDTemps() {
 		Circle leddroiteTemps = materiel.getIhm().getLeddroiteTemps();
-		if (leddroiteTemps.getStyleClass().contains("ontemps")) {
-			leddroiteTemps.getStyleClass().remove(0);
-		}
+		leddroiteTemps.getStyleClass().remove(0);
 		leddroiteTemps.getStyleClass().add(0, "off");
 	}
 
