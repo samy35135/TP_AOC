@@ -1,7 +1,6 @@
 package TP_AOC.v1.Engine;
 
 import TP_AOC.v1.Engine.Command.Command;
-import TP_AOC.v1.Engine.Horloge.Horloge;
 import TP_AOC.v1.Engine.Horloge.Horloge_Tempo;
 
 import java.util.Hashtable;
@@ -43,10 +42,12 @@ public class Engine implements IEngine{
 	@Override
 	public void setTempo(int t) {
 		if( TEMPO_MIN <= t  && t <= TEMPO_MAX ){
-			this.tempo = t;
-			temps_fait = 0;
-			horloge_marquer_tempo.changerFrequence(((double)60/tempo));
-			map_commandes.get(SignalMoteur.UpdateTemps).execute();
+			if(t!=this.tempo){
+				this.tempo = t;
+				temps_fait = 0;
+				horloge_marquer_tempo.changerFrequence(((double)60/tempo));
+				map_commandes.get(SignalMoteur.UpdateTemps).execute();
+			}
 		}
 	}
 

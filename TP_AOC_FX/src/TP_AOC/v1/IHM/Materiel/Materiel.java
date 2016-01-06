@@ -1,7 +1,7 @@
 package TP_AOC.v1.IHM.Materiel;
 
 
-import TP_AOC.v1.IHM.java.IHM;
+import TP_AOC.v1.IHM.Vue.IHM;
 import TP_AOC.v1.IHM.Materiel.Interface.*;
 import TP_AOC.v1.IHM.Materiel.Materiels.*;
 
@@ -13,13 +13,13 @@ public class Materiel {
 
     public IHM ihm;
 
-    public Afficheur afficheur;
+    private Afficheur afficheur;
 
-    public Molette molette;
+    private Molette molette;
 
-    public EmetteurSonore emetteurSonore;
+    private EmetteurSonore emetteurSonore;
 
-    public Clavier clavier;
+    private Clavier clavier;
 
     /**
      * Default constructor

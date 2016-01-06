@@ -2,7 +2,7 @@ package TP_AOC.v1;
 
 
 import TP_AOC.v1.Controller.Controller;
-import TP_AOC.v1.IHM.java.IHM;
+import TP_AOC.v1.IHM.Vue.IHM;
 import TP_AOC.v1.IHM.Materiel.Materiel;
 
 public class Client {

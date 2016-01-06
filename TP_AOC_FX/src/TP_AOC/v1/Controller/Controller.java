@@ -8,10 +8,10 @@ import TP_AOC.v1.Engine.SignalMoteur;
 import TP_AOC.v1.Engine.Command.UpdateMarche;
 import TP_AOC.v1.Engine.Command.UpdateMesure;
 import TP_AOC.v1.Engine.Command.UpdateTemps;
-import TP_AOC.v1.IHM.java.CommandIHM.*;
-import TP_AOC.v1.IHM.java.IIHM;
+import TP_AOC.v1.IHM.CommandIHM.*;
+import TP_AOC.v1.IHM.Vue.IIHM;
 import TP_AOC.v1.IHM.Materiel.Materiel;
-import TP_AOC.v1.IHM.java.SignalIHM;
+import TP_AOC.v1.IHM.Vue.SignalIHM;
 
 
 /**
@@ -22,7 +22,7 @@ public class Controller implements IController {
 	IEngine moteur;
 	Materiel materiel;
 
-	IIHM ihm;
+	IImplemCommand ihm;
 
 	public static final int TEMP_AFFICHAGE_LED_MS = 20;
     /**
@@ -77,8 +77,8 @@ public class Controller implements IController {
 		System.out.println("Controller ... arrêter ");
 		if(moteur.getEtatMarche()){
 			moteur.setEtatMarche(false);
-			materiel.afficheur.eteindreLED(2);
-			materiel.afficheur.eteindreLED(1);
+			materiel.getAfficheur().eteindreLED(2);
+			materiel.getAfficheur().eteindreLED(1);
 		}
 	}	
 
@@ -105,8 +105,8 @@ public class Controller implements IController {
 		/**
 		 * Si décalage entre les deux LEDS? allumer TEMPO, ALLUMER MESURE, ETEINDRE MESURE,ETEINDRE TEMPO
 		 */
-		materiel.afficheur.allumerLED(2);
-		materiel.afficheur.allumerLED(1);
+		materiel.getAfficheur().allumerLED(2);
+		materiel.getAfficheur().allumerLED(1);
 		materiel.getEmetteurSonore().emettreSonMesure();
 		materiel.getEmetteurSonore().emettreSonTempo();
 		try {
@@ -114,8 +114,8 @@ public class Controller implements IController {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		materiel.afficheur.eteindreLED(2);
-		materiel.afficheur.eteindreLED(1);
+		materiel.getAfficheur().eteindreLED(2);
+		materiel.getAfficheur().eteindreLED(1);
 	}
 
 	/**
@@ -123,14 +123,14 @@ public class Controller implements IController {
 	 */
 	@Override
 	public void marquerTemps(){
-		materiel.afficheur.allumerLED(1);
+		materiel.getAfficheur().allumerLED(1);
 		materiel.getEmetteurSonore().emettreSonTempo();
 		try {
 			Thread.sleep(TEMP_AFFICHAGE_LED_MS);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		materiel.afficheur.eteindreLED(1);
+		materiel.getAfficheur().eteindreLED(1);
 	}
 
 	@Override
@@ -151,11 +151,11 @@ public class Controller implements IController {
 	}
 
 
-	public IIHM getIhm() {
+	public IImplemCommand getIhm() {
 		return ihm;
 	}
 
-	public void setIhm(IIHM ihm) {
+	public void setIhm(IImplemCommand ihm) {
 		this.ihm = ihm;
 	}
 

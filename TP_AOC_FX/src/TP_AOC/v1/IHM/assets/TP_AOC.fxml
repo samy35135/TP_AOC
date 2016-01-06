@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="layout" prefHeight="312.0" prefWidth="600.0" styleClass="background" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TP_AOC.v1.IHM.java.IHM">
+<AnchorPane fx:id="layout" prefHeight="312.0" prefWidth="600.0" styleClass="background" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TP_AOC.v1.IHM.Vue.IHM">
     <children>
         <Button fx:id="onandoff" layoutX="14.0" layoutY="19.0" minHeight="28.0" minWidth="42.0" mnemonicParsing="false" onAction="#gestioneventstartandstop" prefHeight="28.0" prefWidth="42.0" textAlignment="CENTER" />
         <Button fx:id="buttonplus" layoutX="212.0" layoutY="251.0" mnemonicParsing="false" onAction="#augmenterMesure" text="+" />
