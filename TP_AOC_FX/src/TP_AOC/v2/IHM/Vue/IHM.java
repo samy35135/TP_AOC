@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.*;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -95,7 +96,12 @@ public class IHM extends Application implements Initializable, IIHM {
 	public void changerAffichageTempo(String value) {
 		System.out.println("DEBUG --- CHANGER VALEUR "  + value);
 		System.out.println("LALLALLALA" + getAffichagetempo());
-		getAffichagetempo().setText(value);
+		Platform.runLater(new Runnable() {
+			@Override public void run() {
+				getAffichagetempo().setText(value);
+			}
+		});
+
 	}
 
 	/***************************************     BStartandStop   ***************************************/

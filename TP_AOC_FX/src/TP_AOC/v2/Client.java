@@ -6,6 +6,7 @@ import TP_AOC.v2.IHM.Adapter.Adapter;
 import TP_AOC.v2.IHM.CommandIHM.IImplemCommand;
 import TP_AOC.v2.IHM.Vue.IHM;
 import TP_AOC.v2.IHM.Materiel.Materiel;
+import javafx.application.Platform;
 
 public class Client {
 
@@ -25,7 +26,13 @@ public class Client {
         controller.initialiser();
 
         ((Adapter) adapter).demarrer();
-        ihm.demarrer();
 
+        // mise en place d'un petit tempo pour l'horloge adapter afin que l'utilisateur ne clique pas trop vite.
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        ihm.demarrer();
     }
 }
