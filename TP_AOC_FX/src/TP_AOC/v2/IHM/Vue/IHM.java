@@ -126,6 +126,7 @@ public class IHM extends Application implements Initializable, IIHM {
 	 * @param css
 	 */
 	public void BoutonEtatON(ObservableList<String> css) {
+		disableornot(true);
 		css.remove(0);
 		css.add(0, "onbutton");
 		onandoff.setText("ON");
@@ -138,10 +139,28 @@ public class IHM extends Application implements Initializable, IIHM {
 	 * @param css
 	 */
 	public void BoutonEtatOFF(ObservableList<String> css) {
+		disableornot(false);
 		css.remove(0);
 		css.add(0, "offbutton");
 		onandoff.setText("OFF");
 
+	}
+	/**
+	 * permet de verrouiller ou déverouiller les composants
+	 * slider et boutons (+/-) en fonction de l'état(ON/OFF)
+	 *
+	 * @param etat boolean
+	 */
+	public void disableornot(boolean etat) {
+		if(etat){
+			buttonplus.setDisable(false);
+			buttonmoins.setDisable(false);
+			slider.setDisable(false);
+		}else{
+			buttonplus.setDisable(true);
+			buttonmoins.setDisable(true);
+			slider.setDisable(true);
+		}
 	}
 
 	/***************************************
