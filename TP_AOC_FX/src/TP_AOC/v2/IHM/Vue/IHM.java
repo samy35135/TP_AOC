@@ -59,7 +59,7 @@ public class IHM extends Application implements Initializable, IIHM {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/TP_AOC/v2/IHM/assets/TP_AOC.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/TP_AOC_V2.fxml"));
 			Parent root = loader.load();
 			scene = new Scene(root, 600, 320);
 			primaryStage.setScene(scene);

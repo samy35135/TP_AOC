@@ -29,7 +29,7 @@ public class Client {
 
         // mise en place d'un petit tempo pour l'horloge adapter afin que l'utilisateur ne clique pas trop vite.
         try {
-            Thread.sleep(1000);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

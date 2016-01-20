@@ -28,28 +28,26 @@ public class Materiel_EmetteurSonore implements EmetteurSonore {
     public Materiel_EmetteurSonore(Materiel materiel) {
         this.materiel = materiel;
 
-        tickFile = new File("songs/son1.mp3");
-        try {
+        tickFile = new File("/son1.mp3");
+        /*try {
             tick = new AudioClip(tickFile.toURI().toString());
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
     @Override
     public void emettreSonTempo() {
-       /* final Media media1  = new Media(new File("songs/son1.mp3").toURI().toString());
+        final Media media1  = new Media(getClass().getResource("/son1.mp3").toString());
         final MediaPlayer mediaPlayer1 = new MediaPlayer(media1);
         mediaPlayer1.play();
-
-        */
 
         tick.play();
     }
 
     @Override
     public void emettreSonMesure() {
-        final Media media2  = new Media(new File("songs/son2.mp3").toURI().toString());
+        final Media media2  = new Media(new File("/son2.mp3").toURI().toString());
         final MediaPlayer mediaPlayer2 = new MediaPlayer(media2);
         mediaPlayer2.play();
     }
