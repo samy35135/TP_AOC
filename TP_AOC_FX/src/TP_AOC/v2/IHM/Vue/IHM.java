@@ -59,7 +59,7 @@ public class IHM extends Application implements Initializable, IIHM {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("../assets/TP_AOC.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/TP_AOC/v2/IHM/assets/TP_AOC.fxml"));
 			Parent root = loader.load();
 			scene = new Scene(root, 600, 320);
 			primaryStage.setScene(scene);
@@ -95,7 +95,6 @@ public class IHM extends Application implements Initializable, IIHM {
 
 	public void changerAffichageTempo(String value) {
 		System.out.println("DEBUG --- CHANGER VALEUR "  + value);
-		System.out.println("LALLALLALA" + getAffichagetempo());
 		Platform.runLater(new Runnable() {
 			@Override public void run() {
 				getAffichagetempo().setText(value);

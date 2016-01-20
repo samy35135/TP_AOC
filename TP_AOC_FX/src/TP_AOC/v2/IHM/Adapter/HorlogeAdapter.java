@@ -22,7 +22,7 @@ public class HorlogeAdapter {
 
     public void demarrer() {
         t = new Timer();
-        t.schedule(new Repeter(), 2000, frequence);
+        t.schedule(new Repeter(), 4000, frequence);
     }
 
     public void stop(){
