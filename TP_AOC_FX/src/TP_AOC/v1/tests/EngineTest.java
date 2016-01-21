@@ -1,5 +1,5 @@
 package TP_AOC.v1.tests;
-/*
+
 import TP_AOC.v1.main.Controller.Controller;
 import TP_AOC.v1.main.Engine.Command.Command;
 import TP_AOC.v1.main.Engine.Command.MarquerMesure;
@@ -16,11 +16,11 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-*/
+
 import java.util.Map;
 
 public class EngineTest {
-/*
+
 
     @Spy
     Engine engine;
@@ -160,6 +160,6 @@ public class EngineTest {
         engine.setEtatMarche(true);
         Mockito.verify(horloge_marquer_tempo).demarrer();
 
-    }*/
+    }
 
 }
